@@ -1,18 +1,29 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <Shop :data="getCategoryList.children"/>
   </div>
+
+
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import { mapGetters, mapActions } from 'vuex'
+import Shop from './Shop'
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    Shop
+
+  },
+  computed: {
+    ...mapGetters(['getCategoryList'])
+  },
+  methods: {
+    ...mapActions(['setCategoryList'])
+  },
+  async created(){
+    await this.$store.dispatch('setCategoryList')
   }
 }
 </script>
