@@ -1,7 +1,7 @@
 <template>
     <v-card class="mb-4" style="max-width: 450px; padding:5px">
         <v-card-title   class="d-inline-block text-truncate"
-                        style="max-width: 300px;">
+                        style="max-width: 400px;">
             {{prod.name}}
         </v-card-title>
         <v-card-subtitle>
@@ -34,5 +34,16 @@
 </script>
 
 <style scoped>
+    .textdescr {
+        display: inline-block;
+        max-height: 100px;
+        border: 1px dashed ;
+        border-radius: 5px;
 
+        text-overflow: ellipsis "[ ..]";
+        padding: 5px;
+        overflow: hidden;
+        /*text-trim: force-end;*/
+
+    }
 </style>
