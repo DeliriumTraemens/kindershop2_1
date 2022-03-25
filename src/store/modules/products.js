@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default {
     state: {
-        currentProdList: [{}],
+        currentProdList: [],
         currentPage: '',
         totalPages: ''
     },
@@ -21,8 +21,11 @@ export default {
         currentProdListMutation(state, arg) {
             state.currentProdList = arg
         },
-        currentPageMutation(state, arg){
-            state.currentPage +=arg
+        currentPageMutation(state, arg) {
+            state.currentPage = arg
+        },
+        totalPagesMutation(state, arg) {
+            state.totalPages = arg
         }
 
     },
@@ -31,6 +34,11 @@ export default {
             await axios.get('http://localhost:9292/product/' + arg.id)
                 .then(res => {
                     context.commit('currentProdListMutation', res.data.products);
+                    context.commit('currentPageMutation', res.data.currentPage);
+                    context.commit('totalPagesMutation', res.data.totalPages);
+                    console.log('Pagination')
+                    console.log('Current Page  ' + res.data.currentPage)
+                    console.log('Total Pages  ' + res.data.totalPages)
                     // console.log(context.getters.getCurrentProdList)
                 })
         }
