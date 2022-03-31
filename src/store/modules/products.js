@@ -57,13 +57,9 @@ export default {
             let catId= context.getters.getSelectedCategoryId
             await axios.get('http://localhost:9292/product/' + catId, {params:{page: context.state.currentPage + 1}})
                 .then(res => {
-                    // context.commit('currentProdListMutation', res.data.products);
                     context.commit('prodListPagedMutation', res.data.products);
                     context.commit('currentPageMutation', res.data.currentPage);
                     context.commit('totalPagesMutation', res.data.totalPages);
-                    console.log('Pagination')
-                    console.log('Current Page  ' + res.data.currentPage)
-                    console.log('Total Pages  ' + res.data.totalPages)
                 })
         }
     }
