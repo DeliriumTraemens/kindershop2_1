@@ -26,7 +26,7 @@
                 > &#9671; </span>
                 {{ nodes.name }} <strong>{{nodes.id}}</strong>
             </div>
-
+            <v-btn x-small @click="catRemove(nodes.id)" color="warning">x</v-btn>
         </v-layout>
 
         <div
@@ -48,7 +48,7 @@
     export default {
         name: "CatBrowser1",
         props:{
-            nodes: Array,
+            nodes: Object,
             depth: {
                 type: Number,
                 default: 0
@@ -61,12 +61,15 @@
         },
         methods: {
             ...mapActions(['setCurrentProdList']),
-            nodeClicked(nodes){
+          async  nodeClicked(nodes){
                 this.expanded = !this.expanded
                 // console.log(nodes)
-                    this.$store.dispatch('setCurrentProdList',nodes)
+               await     this.$store.dispatch('setCurrentProdList',nodes)
 
             },
+            catRemove(id){
+                alert(id)
+    },
             startDrag2(nodes){},
             onDrop2(nodes){}
         },

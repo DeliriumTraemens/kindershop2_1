@@ -19,14 +19,17 @@
         </v-col>
         <v-col>
             <h1>Center Column</h1>
-            <div class="overflow-y-auto" style="max-height: 700px">
+            <div >
                 <ProductList/>
 
             </div>
         </v-col>
         <v-col>
             <h1>Right Column</h1>
-
+            <div>
+                Current Page: {{getCurrentPage}}<br>
+                TotalPages: {{getTotalPages}}
+            </div>
         </v-col>
       </v-row>
     </div>
@@ -36,12 +39,16 @@
 // import CategoryList from '../components/category/CategoryList.vue'
 import CatBrowser1 from "../components/category/CatBrowser1";
 import ProductList from "../components/product/ProductList";
+import {mapGetters} from 'vuex';
 export default {
   name: 'Shop',
     props : {
       data:[]
     },
-  components: {ProductList, CatBrowser1 }
+  components: {ProductList, CatBrowser1 },
+    computed: {
+      ...mapGetters(['getCurrentPage','getTotalPages'])
+    }
 }
 </script>
 
