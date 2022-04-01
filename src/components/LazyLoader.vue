@@ -16,11 +16,10 @@
         mounted() {
             window.onscroll = () => {
                 let el = document.documentElement
-                this.isBottomOfScreen = el.scrollTop + window.innerHeight > el.offsetHeight - 2
+                this.isBottomOfScreen = el.scrollTop + window.innerHeight > el.offsetHeight - 10
                 if (this.isBottomOfScreen) {
                     // alert('ProductList')
                     this.loadProductPage()
-            this.isBottomOfScreen=null
                 }
             }
         },

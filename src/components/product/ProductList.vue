@@ -7,9 +7,9 @@
             {{idx+1}}
 
             <ProductListCard :prod="prod" />
-            <LazyLoader />
 <!--<div id="showScroll">aaaa</div>-->
         </div>
+            <LazyLoader />
     </div>
 
     </div>
