@@ -10,11 +10,12 @@
         methods: mapActions(['loadProductPage']),
         mounted() {
             window.onscroll = () => {
-                const el = document.documentElement
-                const isBottomOfScreen = el.scrollTop + window.innerHeight > el.offsetHeight - 2
+                let el = document.documentElement
+                let isBottomOfScreen = el.scrollTop + window.innerHeight > el.offsetHeight - 2
                 if (isBottomOfScreen) {
                     // alert('ProductList')
                     this.loadProductPage()
+                   isBottomOfScreen=el.scrollTop
                 }
             }
         },
