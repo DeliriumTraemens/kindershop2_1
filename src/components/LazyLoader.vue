@@ -6,16 +6,21 @@
     import {mapActions} from 'vuex';
     export default {
         name: "LazyLoader",
+        data(){
+            return{
+                isBottomOfScreen:null
+            }
+        },
 
         methods: mapActions(['loadProductPage']),
         mounted() {
             window.onscroll = () => {
                 let el = document.documentElement
-                let isBottomOfScreen = el.scrollTop + window.innerHeight > el.offsetHeight - 2
-                if (isBottomOfScreen) {
+                this.isBottomOfScreen = el.scrollTop + window.innerHeight > el.offsetHeight - 2
+                if (this.isBottomOfScreen) {
                     // alert('ProductList')
                     this.loadProductPage()
-                   isBottomOfScreen=el.scrollTop
+            this.isBottomOfScreen=null
                 }
             }
         },
