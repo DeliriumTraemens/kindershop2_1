@@ -1,7 +1,7 @@
 <template>
     <div>
       <v-row>
-        <v-col>
+        <v-col >
             <h1>Left Column</h1>
       <h1>Shop Face 2</h1>
             <hr class="my-4">
@@ -17,7 +17,7 @@
 <!--            <CategoryList />-->
 
         </v-col>
-        <v-col>
+        <v-col cols="5">
             <h1>Center Column</h1>
             <div >
                 <ProductList/>
@@ -30,6 +30,21 @@
                 Current Page: {{getCurrentPage}}<br>
                 TotalPages: {{getTotalPages}}
             </div>
+            <hr>
+            <div>
+                Current Category: {{typeof getSelectedCategoryId}}' '{{getSelectedCategoryId}} <br>
+                Target Category: {{typeof getTargetCategoryId}} ' ' {{getTargetCategoryId}}
+            </div>
+            <hr class="my-2">
+            <LiveSearch />
+            <hr class="my-2">
+            <v-card class="overflow-y-auto"
+                    max-height="600">
+
+                <CatBrowser1   v-for="nodes in data"
+                               :key="nodes.id"
+                               :nodes="nodes" />
+            </v-card>
         </v-col>
       </v-row>
     </div>
@@ -37,17 +52,18 @@
 
 <script>
 // import CategoryList from '../components/category/CategoryList.vue'
+import LiveSearch from "../components/common_ui/LiveSearch";
 import CatBrowser1 from "../components/category/CatBrowser1";
 import ProductList from "../components/product/ProductList";
 import {mapGetters} from 'vuex';
 export default {
   name: 'Shop',
     props : {
-      data:[]
+      data:[Array, Number]
     },
-  components: {ProductList, CatBrowser1 },
+  components: {ProductList, CatBrowser1, LiveSearch },
     computed: {
-      ...mapGetters(['getCurrentPage','getTotalPages'])
+      ...mapGetters(['getCurrentPage','getTotalPages', 'getSelectedCategoryId', 'getTargetCategoryId'])
     }
 }
 </script>

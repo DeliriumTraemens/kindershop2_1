@@ -8,8 +8,8 @@
 
             <ProductListCard :prod="prod" />
 <!--<div id="showScroll">aaaa</div>-->
+<!--            <LazyLoader />-->
         </div>
-            <LazyLoader />
     </div>
 
     </div>
@@ -18,14 +18,14 @@
 <script>
     import {mapGetters, mapActions} from 'vuex';
     import ProductListCard from "./ProductListCard";
-    import LazyLoader from "../LazyLoader";
 
     export default {
         name: "ProductList",
-        components: { ProductListCard, LazyLoader },
+        components: { ProductListCard, },
         data(){
             return{
-                scroll: document.getElementById('list1').pageYOffset
+                // scroll: document.getElementById('list1').pageYOffset,
+                offset:50
             }
         },
         computed: {
@@ -33,26 +33,25 @@
         },
         methods: {
             ...mapActions(['loadProductPage']),
-            // scroll() {
-            //
-            // }
+            handleScroll(){
+                if(window.scrollY + window.innerHeight >= document.body.scrollHeight - this.offset){
+
+                    this.$store.dispatch('loadProductPage')
+
+                    this.offset=0
+                }
+            }
+
         },
         mounted() {
 
-            // window.onscroll = () => {
-            //     const el = document.documentElement
-            //     const isBottomOfScreen = el.scrollTop + window.innerHeight > el.offsetHeight - 2
-            //     if (isBottomOfScreen) {
-            //         // alert('ProductList')
-            //         this.loadProductPage()
-            //     }
-            // }
+            window.addEventListener('scroll', this.handleScroll)
 
-            // this.scroll()
             },
 
         beforeDestroy(){
-            window.onscroll = null
+            this.offset=50
+            window.removeEventListener('scroll', this.handleScroll)
         }
     }
 </script>

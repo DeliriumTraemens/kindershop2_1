@@ -26,6 +26,10 @@
       </div>
 
       <v-spacer></v-spacer>
+      <v-btn @click="show_shop" x-small color="warning" class="mr-2">Shop</v-btn>
+      <v-btn @click="shop_commander" x-small color="blue">Shop Commander</v-btn>
+
+      <v-spacer></v-spacer>
 
       <v-btn
         href="https://github.com/vuetifyjs/vuetify/releases/latest"
@@ -51,5 +55,13 @@ export default {
   data: () => ({
     //
   }),
+  methods:{
+    shop_commander(){
+      this.$router.push('/commander')
+    },
+    show_shop(){
+      this.$router.push('/')
+    }
+  }
 };
 </script>

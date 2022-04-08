@@ -5,7 +5,8 @@
             {{prod.name}}
         </v-card-title>
         <v-card-subtitle>
-            {{prod.id}}
+           Id: {{prod.id}}<br>
+            Manufacturer: <strong> {{prod.manufacturer.name}} </strong>
         </v-card-subtitle>
         <v-img
 

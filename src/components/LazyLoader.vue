@@ -1,5 +1,5 @@
 <template>
-    <span></span>
+    <span>  aa </span>
 </template>
 
 <script>
@@ -12,16 +12,27 @@
             }
         },
 
-        methods: mapActions(['loadProductPage']),
-        mounted() {
-            window.onscroll = () => {
-                let el = document.documentElement
-                this.isBottomOfScreen = el.scrollTop + window.innerHeight > el.offsetHeight - 10
-                if (this.isBottomOfScreen) {
-                    // alert('ProductList')
-                    this.loadProductPage()
+        methods: {
+            ...mapActions(['loadProductPage']),
+            handleScroll(){
+                if(window.scrollY + window.innerHeight >= document.body.scrollHeight -50){
+                    alert('Scrolled Lazy Loader')
                 }
             }
+        },
+
+        mounted() {
+
+            window.addEventListener('scroll', this.handleScroll)
+
+            // window.onscroll = () => {
+            //     let el = document.documentElement
+            //     this.isBottomOfScreen = el.scrollTop + window.innerHeight > el.offsetHeight - 10
+            //     if (this.isBottomOfScreen) {
+            //         // alert('ProductList')
+            //         this.loadProductPage()
+            //     }
+            // }
         },
         beforeDestroy(){
             window.onscroll = null

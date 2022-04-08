@@ -49,6 +49,7 @@ export default {
                                 console.log('Pagination')
                                 console.log('Current Page  ' + res.data.currentPage)
                                 console.log('Total Pages  ' + res.data.totalPages)
+                                console.log(res.data.products)
                 })
         },
 

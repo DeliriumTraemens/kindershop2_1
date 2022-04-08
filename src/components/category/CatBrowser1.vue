@@ -26,7 +26,14 @@
                 > &#9671; </span>
                 {{ nodes.name }} <strong>{{nodes.id}}</strong>
             </div>
+            <v-layout
+                    align-start
+                    justify-end
+            >
+            <AddCategoryDialog />
+            <v-btn x-small color="success">+</v-btn>
             <v-btn x-small @click="catRemove(nodes.id)" color="warning">x</v-btn>
+            </v-layout>
         </v-layout>
 
         <div
@@ -45,10 +52,12 @@
 
 <script>
     import {mapActions} from 'vuex';
+    import AddCategoryDialog from "./AddCategoryDialog";
     export default {
         name: "CatBrowser1",
+        components: {AddCategoryDialog},
         props:{
-            nodes: Object,
+            nodes: [Array, Number, Object],
             depth: {
                 type: Number,
                 default: 0
@@ -60,7 +69,8 @@
             }
         },
         methods: {
-            ...mapActions(['setCurrentProdList']),
+            ...mapActions(['setCurrentProdList', 'setSelectedCategoryId', 'setTargetCategoryId', 'editCategoryIerarchy','deleteCategory']),
+
           async  nodeClicked(nodes){
                 this.expanded = !this.expanded
                 // console.log(nodes)
@@ -68,10 +78,18 @@
 
             },
             catRemove(id){
-                alert(id)
-    },
-            startDrag2(nodes){},
-            onDrop2(nodes){}
+                this.$store.dispatch('deleteCategory', id)
+                // alert(id)
+            },
+            startDrag2(nodes){
+                // alert('Dragged ' + nodes.id)
+                this.$store.dispatch('setSelectedCategoryId', nodes.id)
+            },
+            onDrop2(nodes){
+                this.$store.dispatch('setTargetCategoryId',nodes.id);
+                this.$store.dispatch('editCategoryIerarchy')
+
+            }
         },
     }
 </script>
