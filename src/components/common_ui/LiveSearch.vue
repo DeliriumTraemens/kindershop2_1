@@ -5,16 +5,21 @@
         <!--            <div>{{input}}</div>-->
         <hr class="my-3">
                     <div class="search_res mb-4">Total found <strong>{{result.length}}</strong></div>
-        <div v-for="item in result" :key="item.id">
-            <div @click="itemClicked(item)">
-                <v-layout justify-space-between
-                >
-                    <div class="search_res">{{item.name}} <strong>Id {{item.id}}</strong></div>
 
-                </v-layout>
+        <div class="overflow-y-auto" style="max-height: 550px" id="list1">
+
+            <div v-for="item in result" :key="item.id" >
+                <div @click="itemClicked(item)">
+                    <v-layout justify-space-between
+                    >
+                        <div class="search_res">{{item.name}} <strong>Id {{item.id}}</strong> <v-btn x-small color="orange">–</v-btn></div>
+
+                    </v-layout>
+                </div>
+                <!--            <p>{{item}}</p>-->
             </div>
-            <!--            <p>{{item}}</p>-->
         </div>
+
     </div>
 </template>
 
