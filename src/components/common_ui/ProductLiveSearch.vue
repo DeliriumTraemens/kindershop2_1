@@ -6,12 +6,11 @@
         <hr class="my-4">
         <h5>{{input}}</h5>
         <h5>Найдено: {{result.length}}</h5>
-        <div v-for="item in result" :key="item.id">
-            <div class="prodcard">
-                <h5>{{item.name}} {{item.id}}</h5><br>
-                <h6>Category {{item.catId}}</h6>
-                <p>Производитель: </p>
-            </div>
+        <div v-for="item in result" :key="item.id" >
+        <ProductSearchCard :item="item" />
+
+
+
 
         </div>
     </div>
@@ -19,9 +18,12 @@
 
 <script>
     import axios from 'axios'
+    import ProductSearchCard from "../product/ProductSearchCard.vue";
+
 
     export default {
         name: "ProductLiveSearch",
+        components: {ProductSearchCard},
         data() {
             return {
                 input: '',
@@ -56,5 +58,23 @@
     border: 1px solid;
     margin-bottom: 5px;
     padding: 5px;
+}
+.myCard{
+    background-color:sandybrown;
+    min-height: 150px;
+    border:1px solid;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    padding: 3px;
+}
+.myHeader{
+    border:1px solid;
+    background-color:white;
+    margin: 3px;
+}
+.myRow{
+    border:1px solid;
+    background-color:white;
+    margin: 3px;
 }
 </style>

@@ -3,6 +3,9 @@
 
     <div  >
         <h2>Product List</h2>
+        <div v-if="getCurrentProdList.length === 0" class="empty-box">
+            <h2>Категория без товаров id: {{getSelectedCategoryId}}</h2>
+        </div>
         <div v-for="(prod,idx) in getCurrentProdList" :key="idx" >
             {{idx+1}}
 
@@ -29,7 +32,7 @@
             }
         },
         computed: {
-            ...mapGetters(['getCurrentProdList','getCurrentPage','getTotalPages'])
+            ...mapGetters(['getCurrentProdList','getCurrentPage','getTotalPages','getSelectedCategoryId'])
         },
         methods: {
             ...mapActions(['loadProductPage']),
@@ -57,5 +60,10 @@
 </script>
 
 <style scoped>
-
+.empty-box{
+    min-height: 200px;
+    background-color:black;
+    color: yellow;
+    text-align: center;
+}
 </style>

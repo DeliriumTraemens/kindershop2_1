@@ -1,24 +1,27 @@
 <template>
-    <v-card class="mb-4" style="max-width: 450px; padding:5px">
+    <v-card class="mb-4" style="max-width: 350px">
+
+        <v-img
+
+                height="200px"
+                :src="'http://localhost:9292/images/'+prod.image"
+        />
+
+        <hr class="my-4">
+        <strong>Цена </strong> {{prod.price}} руб.
+        <hr class="my-4">
+
         <v-card-title   class="d-inline-block text-truncate"
-                        style="max-width: 400px;">
+                        style="max-width: 350px;">
             {{prod.name}}
         </v-card-title>
         <v-card-subtitle>
            Id: {{prod.id}}<br>
             Manufacturer: <strong> {{prod.manufacturer.name}} </strong>
         </v-card-subtitle>
-        <v-img
-
-                width="150px"
-                :src="'http://localhost:9292/images/'+prod.image"
-        />
         <v-card-text>
-            <div class="textdescr">{{prod.description}}</div>
+<!--            <div class="textdescr">{{prod.description}}</div>-->
         </v-card-text>
-        <hr class="my-4">
-        <strong>Цена </strong> {{prod.price}} руб.
-        <hr class="my-4">
         <v-card-actions>
             <v-btn x-small >Show</v-btn>
         </v-card-actions>

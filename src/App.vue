@@ -2,7 +2,7 @@
   <v-app>
     <v-app-bar
       app
-      color="primary"
+      color="grey darken-2"
       dark
     >
       <div class="d-flex align-center">
@@ -27,7 +27,9 @@
 
       <v-spacer></v-spacer>
       <v-btn @click="show_shop" x-small color="warning" class="mr-2">Shop</v-btn>
-      <v-btn @click="shop_commander" x-small color="blue">Shop Commander</v-btn>
+      <v-btn @click="shop_commander" x-small color="blue" class="mr-2">Shop Commander</v-btn>
+      <v-btn @click="shop_trainer" x-small color="red">Shop Trainer</v-btn>
+
 
       <v-spacer></v-spacer>
 
@@ -61,6 +63,9 @@ export default {
     },
     show_shop(){
       this.$router.push('/')
+    },
+    shop_trainer(){
+      this.$router.push('/trainer')
     }
   }
 };

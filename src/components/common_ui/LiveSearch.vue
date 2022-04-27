@@ -12,7 +12,11 @@
                 <div @click="itemClicked(item)">
                     <v-layout justify-space-between
                     >
-                        <div class="search_res">{{item.name}} <strong>Id {{item.id}}</strong> <v-btn x-small color="orange">–</v-btn></div>
+                        <div class="search_res">{{item.name}} <strong>Id {{item.id}}</strong> </div>
+                        <v-layout>
+                            <v-btn x-small color="orange" @click="catRemove(item.id)">–</v-btn>
+                        </v-layout>
+
 
                     </v-layout>
                 </div>
@@ -36,7 +40,7 @@
             }
         },
         methods: {
-            ...mapActions(['setCurrentProdList']),
+            ...mapActions(['setCurrentProdList','deleteCategory']),
             itemClicked(item) {
                 this.$store.dispatch('setCurrentProdList', item)
                 // alert(item.name)
@@ -55,6 +59,9 @@
                     })
                     // alert('pressed')
                 }
+            },
+            catRemove(id){
+                this.$store.dispatch('deleteCategory', id)
             }
         },
     }

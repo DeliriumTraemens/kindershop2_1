@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import ShopCommander from "../views/ShopCommander";
+import ShopTrainer from "../views/ShopTrainer";
 
 Vue.use(VueRouter)
 
@@ -15,6 +16,11 @@ const routes = [
     path: '/commander',
     name: 'ShopCommander',
     component: ShopCommander
+  },
+  {
+    path: '/trainer',
+    name: 'ShopTrainer',
+    component: ShopTrainer
   },
   {
     path: '/about',

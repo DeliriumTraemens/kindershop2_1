@@ -31,7 +31,7 @@
                     justify-end
             >
             <AddCategoryDialog />
-            <v-btn x-small color="success">+</v-btn>
+            <v-btn x-small color="success" >+</v-btn>
             <v-btn x-small @click="catRemove(nodes.id)" color="warning">x</v-btn>
             </v-layout>
         </v-layout>
@@ -51,7 +51,7 @@
 </template>
 
 <script>
-    import {mapActions} from 'vuex';
+    import { mapGetters, mapActions} from 'vuex';
     import AddCategoryDialog from "./AddCategoryDialog";
     export default {
         name: "CatBrowser1",
@@ -67,6 +67,9 @@
             return{
                 expanded: false
             }
+        },
+        computed:{
+            ...mapGetters(['getCurrentProdList'])
         },
         methods: {
             ...mapActions(['setCurrentProdList', 'setSelectedCategoryId', 'setTargetCategoryId', 'editCategoryIerarchy','deleteCategory']),
