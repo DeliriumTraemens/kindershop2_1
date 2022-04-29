@@ -2,6 +2,7 @@
     <div>
         <h1>Manufacturer List</h1>
             Количество производителей {{getManufacturerList.length}}
+        <ManPaginationSelector />
         <v-row >
             <v-col v-for="(item, i) in getManufacturerList" :key="i">
                 <ManufacturerListCard :item="item"/>
@@ -14,9 +15,10 @@
 <script>
     import {mapGetters, mapActions} from 'vuex'
     import ManufacturerListCard from "./ManufacturerListCard";
+    import ManPaginationSelector from "./ManPaginationSelector";
     export default {
         name: "ManufacturerCard",
-        components: {ManufacturerListCard},
+        components: {ManPaginationSelector, ManufacturerListCard},
         mounted(){
             this.$store.dispatch('setManufacturerList')
         },

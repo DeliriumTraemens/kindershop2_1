@@ -1,5 +1,5 @@
 <template>
-    <div class="myCard">
+    <v-card class="myCard">
         <div class="myHeader">{{item.name}}</div>
         <v-row class="myRow">
             <v-col cols="8">
@@ -16,7 +16,7 @@
                         contain
                         :src="'http://localhost:9292/images/'+item.image"
                         transition="scale-transition"
-                        width="120"
+                        width="150"
                 />
             </v-col>
         </v-row>
@@ -25,7 +25,7 @@
 
                 </div>
 
-    </div>
+    </v-card>
 </template>
 
 <script>

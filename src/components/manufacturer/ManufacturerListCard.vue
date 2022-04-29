@@ -1,5 +1,6 @@
 <template>
         <v-card id="myCard"
+                @click="clickedCard(item)"
                 @dragover.prevent @drop.prevent
                 @dragover="dragover"
                 @drop="dropFile($event, item.id)"
@@ -24,7 +25,7 @@
     export default {
         name: "ManufacturerListCard",
         props: {
-            item: undefined
+            item: {}
         },
         data() {
             return{
@@ -36,7 +37,7 @@
             }
         },
         methods: {
-            ...mapActions(['editPicture']),
+            ...mapActions(['editPicture', 'setSelectedManufacturer']),
 
              dropFile(e, id){
                 // this.File=e.dataTransfer.files
@@ -48,7 +49,9 @@
                 // console.log(e.dataTransfer.files)
             },
             dragover(){
-
+            },
+            clickedCard(item){
+                this.$store.dispatch('setSelectedManufacturer', item)
             }
         }
     }

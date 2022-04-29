@@ -6,18 +6,27 @@
                 <ManufacturerList />
             </v-col>
             <v-col>
-                <div class="dropcard"
-                     @dragover.prevent @drop.prevent
-                     @dragover="dragover"
-                     @drop="dropFile">
+                <h1>Product List</h1>
+                <div>
+                    <h1>
+                        {{getSelectedManufacturer.name}}
+                    </h1>
+                    <div v-for="(item,i) in getSelectedManufacturer.prodCatList" :key="i">
+                        <ProductSearchCard :item="item"/>
+                    </div>
+                </div>
+<!--                <div class="dropcard"-->
+<!--                     @dragover.prevent @drop.prevent-->
+<!--                     @dragover="dragover"-->
+<!--                     @drop="dropFile">-->
 
 
-                </div>
-                <div class="dropcard">
-                    <ul v-for="(file,i) in File" :key="i" >
-                        <li> {{file.name}} </li>
-                    </ul>
-                </div>
+<!--                </div>-->
+<!--                <div class="dropcard">-->
+<!--                    <ul v-for="(file,i) in File" :key="i" >-->
+<!--                        <li> {{file.name}} </li>-->
+<!--                    </ul>-->
+<!--                </div>-->
             </v-col>
         </v-row>
     </div>
@@ -25,15 +34,20 @@
 
 <script>
     import ManufacturerList from "../components/manufacturer/ManufacturerList";
-
+    import {mapGetters} from 'vuex';
+    import ProductSearchCard from "../components/product/ProductSearchCard";
     export default {
         name: "ShopTrainer",
-        components: {ManufacturerList},
+        components: {ProductSearchCard, ManufacturerList},
         data(){
             return{
                 File: []
             }
         },
+        computed: {
+            ...mapGetters(['getSelectedManufacturer'])
+        },
+
         methods: {
             dropFile(e){
                 this.File=e.dataTransfer.files
