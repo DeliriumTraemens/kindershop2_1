@@ -6,7 +6,8 @@ export default {
         selectedManufacturer: {},
         currentManPage: 0,
         totalManPages: Number,
-        manProdList: []
+        manProdList: [],
+        manCatList:[]
     },
     getters: {
         getManufacturerList(state) {
@@ -20,6 +21,9 @@ export default {
         },
         getTotalManPages(state) {
             return state.totalManPages
+        },
+        getManCatList(state){
+          return state.manCatList
         }
     },
     mutations: {
@@ -35,6 +39,9 @@ export default {
 
         totalManPageMutation(state, arg) {
             state.totalManPage = arg
+        },
+        manCatListMutation(state, arg){
+            state.manCatList = arg
         }
 
     },
@@ -49,6 +56,13 @@ export default {
                 // console.log(res.data.manufacturers)
             }).catch(e => {
                 alert(e);
+            })
+        },
+
+        setManCatList(context,arg){
+            const id = arg.id
+            axios.get('http://localhost:9292/manufacturer/cat/'+id).then(res=>{
+                context.commit('manCatListMutation', arg)
             })
         },
 
@@ -77,7 +91,8 @@ export default {
         },
 
         setSelectedManufacturer(context, arg) {
-            context.commit('selectedManufacturerMutation', arg)
+            context.commit('selectedManufacturerMutation', arg);
+            context.dispatch('setManCatList', arg)
         },
 
        async setManufacturerPagedList(context, arg){

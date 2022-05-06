@@ -21,8 +21,8 @@
             </v-col>
         </v-row>
                 <div class="myHeader">
-                    Производитель: {{item.manufacturer.name}}
-
+<!--                    Производитель: {{item.manufacturer.name}}-->
+dddd
                 </div>
 
     </v-card>
