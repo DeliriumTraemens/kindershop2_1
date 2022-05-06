@@ -66,7 +66,11 @@ export default {
                     maxContentLength: 0,
                     maxBodyLength: 0
                 }).then(res => {
-                context.commit('manufacturerListMutation', res.data)
+                context.commit('manufacturerListMutation', res.data.manufacturers)
+                context.commit('currentManPageMutation',res.data.currentPage);
+                // alert(res.data.currentPage)
+                context.commit('totalManPageMutation',res.data.totalPages);
+                // context.commit('manufacturerListMutation', res.data)
             }).catch(e => {
                 console.log(e);
             })

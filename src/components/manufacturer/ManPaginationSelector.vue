@@ -1,8 +1,8 @@
 <template>
     <v-layout justify-space-between class="myCounter">
-        <div @click="counterDecrement()" class="myCounterSwitch"> — </div>
+        <v-btn @click="counterDecrement()" class="myCounterSwitch"> — </v-btn>
         <div>{{getCurrentManPage}}</div>
-        <div @click="counterIncrement()" class="myCounterSwitch"> + </div>
+        <v-btn color="warning" @click="counterIncrement()" class="myCounterSwitch"> + </v-btn>
     </v-layout>
 </template>
 
@@ -36,8 +36,9 @@
     .myCounterSwitch{
         border: 1px solid;
         border-radius: 3px;
-        background-color: oldlace;
-        min-width: 20px;
+        background-color: darkorange;
+        min-width: 30px;
         padding: 5px;
+
     }
 </style>
