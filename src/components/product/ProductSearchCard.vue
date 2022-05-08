@@ -22,7 +22,7 @@
         </v-row>
                 <div class="myHeader">
 <!--                    Производитель: {{item.manufacturer.name}}-->
-dddd
+                    ddff
                 </div>
 
     </v-card>

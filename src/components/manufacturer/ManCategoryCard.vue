@@ -8,14 +8,18 @@
 </template>
 
 <script>
+    import {mapActions} from 'vuex';
     export default {
         name: "ManCategoryCard",
         props: {
             item: Array
         },
         methods: {
+            ...mapActions(['setManProdCatList']),
             cardClick(id){
-
+                // alert('ManCategoryCardClicked '+id)
+                //Передаем Id категории а actions
+                this.$store.dispatch('setManProdCatList', id)
             }
         },
     }

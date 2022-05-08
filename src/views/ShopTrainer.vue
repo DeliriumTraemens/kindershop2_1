@@ -5,10 +5,6 @@
             <v-col cols="4">
                 <ManufacturerList />
             </v-col>
-            <v-col cols="3">
-                <ManCategoryList />
-                Categories
-            </v-col>
             <v-col>
                 <h1>Product List</h1>
                 <div>
@@ -21,6 +17,14 @@
                     </div>
                 </div>
             </v-col>
+            <v-col cols="3">
+                <h3>Categories</h3>
+                <ManCategoryList />
+            </v-col>
+            <v-col>
+                <h3>Cat Prod</h3>
+                <ManCatProdList />
+            </v-col>
         </v-row>
     </div>
 </template>
@@ -30,9 +34,10 @@
     import {mapGetters} from 'vuex';
     import ProductSearchCard from "../components/product/ProductSearchCard";
     import ManCategoryList from "../components/manufacturer/ManCategoryList";
+    import ManCatProdList from "../components/manufacturer/ManCatProdList";
     export default {
         name: "ShopTrainer",
-        components: {ManCategoryList, ProductSearchCard, ManufacturerList},
+        components: {ManCatProdList, ManCategoryList, ProductSearchCard, ManufacturerList},
         data(){
             return{
                 File: []
