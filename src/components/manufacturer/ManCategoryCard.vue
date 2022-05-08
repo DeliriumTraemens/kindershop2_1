@@ -1,8 +1,10 @@
 <template>
-    <div class="manCatCard">
-        Category Card
-        {{item}}
-    </div>
+    <v-card class="mb-3" @click="cardClick(item.id)">
+
+        <h4>{{item.name}}</h4>
+        {{item.id}}<br>
+
+    </v-card>
 </template>
 
 <script>
@@ -10,7 +12,12 @@
         name: "ManCategoryCard",
         props: {
             item: Array
-        }
+        },
+        methods: {
+            cardClick(id){
+
+            }
+        },
     }
 </script>
 

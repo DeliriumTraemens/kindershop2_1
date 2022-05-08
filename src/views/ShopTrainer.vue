@@ -2,10 +2,10 @@
     <div>
         <h1 class="mb-5">Shop Trainer</h1>
         <v-row>
-            <v-col>
+            <v-col cols="4">
                 <ManufacturerList />
             </v-col>
-            <v-col>
+            <v-col cols="3">
                 <ManCategoryList />
                 Categories
             </v-col>

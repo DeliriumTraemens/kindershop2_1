@@ -46,10 +46,6 @@ export default {
                                 context.commit('currentProdListMutation', res.data.products);
                                 context.commit('currentPageMutation', res.data.currentPage);
                                 context.commit('totalPagesMutation', res.data.totalPages);
-                                console.log('Pagination')
-                                console.log('Current Page  ' + res.data.currentPage)
-                                console.log('Total Pages  ' + res.data.totalPages)
-                                console.log(res.data.products)
                 })
         },
 

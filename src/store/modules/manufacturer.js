@@ -59,10 +59,11 @@ export default {
             })
         },
 
-        setManCatList(context,arg){
+       async setManCatList(context,arg){
             const id = arg.id
-            axios.get('http://localhost:9292/manufacturer/cat/'+id).then(res=>{
-                context.commit('manCatListMutation', arg)
+            // alert(id)
+         await   axios.get('http://localhost:9292/manufacturer/cat/'+id).then(res=>{
+                context.commit('manCatListMutation', res.data)
             })
         },
 
