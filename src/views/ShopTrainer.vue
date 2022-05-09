@@ -2,7 +2,7 @@
     <div>
         <h1 class="mb-5">Shop Trainer</h1>
         <v-row>
-            <v-col cols="4">
+            <v-col cols="4" class="overflow-y-auto" style="max-height: 550px">
                 <ManufacturerList />
             </v-col>
             <v-col>
@@ -11,17 +11,19 @@
                     <h1>
                         {{getSelectedManufacturer.name}}
                     </h1>
-                    <div v-for="(item,i) in getSelectedManufacturer.prodCatList" :key="i">
-                        <div>FFF</div>
-                        <ProductSearchCard :item="item"/>
-                    </div>
+<!--                    <div class="overflow-y-auto" style="max-height: 550px">-->
+<!--                        <div v-for="(item,i) in getSelectedManufacturer.prodCatList" :key="i">-->
+<!--                            <div>FFF</div>-->
+<!--                            <ProductSearchCard :item="item"/>-->
+<!--                        </div>-->
+<!--                    </div>-->
                 </div>
             </v-col>
-            <v-col cols="3">
+            <v-col cols="3" class="overflow-y-auto" style="max-height: 550px">
                 <h3>Categories</h3>
                 <ManCategoryList />
             </v-col>
-            <v-col>
+            <v-col class="overflow-y-auto" style="max-height: 550px">
                 <h3>Cat Prod</h3>
                 <ManCatProdList />
             </v-col>

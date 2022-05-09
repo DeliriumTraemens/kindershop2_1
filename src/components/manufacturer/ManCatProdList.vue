@@ -1,7 +1,8 @@
 <template>
 <div>
     ManCatProdList
-    <div v-for="(item, i) in getManProdCatList" :key="i">
+    <h4>Количество товаров: {{getManProdCatList.length}}</h4>
+    <div v-for="(item) in getManProdCatList" :key="item.id">
         <ProductSearchCard :item="item"/>
 
     </div>

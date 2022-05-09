@@ -1,10 +1,11 @@
 <template>
     <v-card class="mb-4" style="max-width: 350px">
 
+<!--                :src="'http://localhost:9292/images/'+prod.image"-->
         <v-img
 
                 height="200px"
-                :src="'http://localhost:9292/images/'+prod.image"
+                :src="'http://kinder.ru/image/'+prod.image"
         />
 
         <hr class="my-4">

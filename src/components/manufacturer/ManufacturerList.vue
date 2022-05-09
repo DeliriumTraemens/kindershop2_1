@@ -4,7 +4,7 @@
             Количество производителей {{getManufacturerList.length}}
         <ManPaginationSelector />
         <v-row >
-            <v-col v-for="(item, i) in getManufacturerList" :key="i">
+            <v-col v-for="(item) in getManufacturerList" :key="item.name">
                 <ManufacturerListCard :item="item"/>
 
             </v-col>

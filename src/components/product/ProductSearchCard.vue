@@ -12,16 +12,17 @@
                 </div>
             </v-col>
             <v-col>
+<!--                        :src="'http://localhost:9292/images/'+item.image"-->
                 <v-img
+                        :src="'http://kinder.ru/image/'+item.image"
                         contain
-                        :src="'http://localhost:9292/images/'+item.image"
                         transition="scale-transition"
                         width="150"
                 />
             </v-col>
         </v-row>
                 <div class="myHeader">
-<!--                    Производитель: {{item.manufacturer.name}}-->
+                    Производитель: {{item.manufacturer.name}}
                     ddff
                 </div>
 
