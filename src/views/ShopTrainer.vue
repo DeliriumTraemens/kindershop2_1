@@ -11,12 +11,12 @@
                     <h1>
                         {{getSelectedManufacturer.name}}
                     </h1>
-<!--                    <div class="overflow-y-auto" style="max-height: 550px">-->
-<!--                        <div v-for="(item,i) in getSelectedManufacturer.prodCatList" :key="i">-->
-<!--                            <div>FFF</div>-->
-<!--                            <ProductSearchCard :item="item"/>-->
-<!--                        </div>-->
-<!--                    </div>-->
+                    <div class="overflow-y-auto" style="max-height: 550px">
+                        <div v-for="(item,i) in getSelectedManufacturer.prodCatList" :key="i">
+                            <div>FFF</div>
+                            <ProductSearchCard :item="item"/>
+                        </div>
+                    </div>
                 </div>
             </v-col>
             <v-col cols="3" class="overflow-y-auto" style="max-height: 550px">

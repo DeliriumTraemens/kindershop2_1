@@ -8,9 +8,9 @@
             <v-card-title>
                 {{item.name}} id{{item.id}}
             </v-card-title>
-            <v-card-subtitle>
-                Количество товаров {{item.prodCatList.length}}
-            </v-card-subtitle>
+<!--            <v-card-subtitle>-->
+<!--                Количество товаров {{item.prodCatList.length}}-->
+<!--            </v-card-subtitle>-->
             <v-img
                     contain
                     :src="'http://localhost:9292/images/'+item.image"

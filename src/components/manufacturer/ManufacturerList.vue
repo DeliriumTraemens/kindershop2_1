@@ -5,6 +5,7 @@
         <ManPaginationSelector />
         <v-row >
             <v-col v-for="(item) in getManufacturerList" :key="item.name">
+
                 <ManufacturerListCard :item="item"/>
 
             </v-col>
