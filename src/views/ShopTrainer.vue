@@ -7,25 +7,32 @@
             </v-col>
             <v-col>
                 <h1>Product List</h1>
-                <div>
-                    <h1>
-                        {{getSelectedManufacturer.name}}
+                <div >
+                    <div >
+                        <h1>
+<!--                        {{getSelectedManufacturer.name}}-->
                     </h1>
-                    <div class="overflow-y-auto" style="max-height: 550px">
-                        <div v-for="(item,i) in getSelectedManufacturer.prodCatList" :key="i">
-                            <div>FFF</div>
-                            <ProductSearchCard :item="item"/>
-                        </div>
+<!--                        <h4>Количество товаров: {{getSelectedManufacturer.prodCatList.length}}</h4>-->
                     </div>
-                </div>
-            </v-col>
-            <v-col cols="3" class="overflow-y-auto" style="max-height: 550px">
+<!--                    <div class="overflow-y-auto" style="max-height: 550px">-->
+<!--                        <div v-for="(item,i) in getSelectedManufacturer.prodCatList" :key="i">-->
+<!--                            <div>FFF</div>-->
+<!--                            <ProductSearchCard :item="item"/>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
                 <h3>Categories</h3>
                 <ManCategoryList />
+
+                </div>
             </v-col>
-            <v-col class="overflow-y-auto" style="max-height: 550px">
+            <v-col cols="4" class="overflow-y-auto" style="max-height: 550px">
                 <h3>Cat Prod</h3>
                 <ManCatProdList />
+
+            </v-col>
+
+            <v-col class="overflow-y-auto" style="max-height: 550px">
             </v-col>
         </v-row>
     </div>

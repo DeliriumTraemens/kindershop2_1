@@ -110,9 +110,13 @@ export default {
             })
         },
 
-        setSelectedManufacturer(context, arg) {
-            context.commit('selectedManufacturerMutation', arg);
+        async setSelectedManufacturer(context, arg) {
+            // alert('Selected Manufacturer Id '+ arg.id)
+            await axios.get('http://localhost:9292/manufacturer/'+arg.id).then(res=>{
+            context.commit('selectedManufacturerMutation', res.data);
             context.dispatch('setManCatList', arg)
+
+            })
         },
 
 

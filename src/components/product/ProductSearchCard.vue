@@ -1,6 +1,7 @@
 <template>
     <v-card class="myCard">
         <div class="myHeader">{{item.name}}</div>
+        <div>{{item.id}}</div>
         <v-row class="myRow">
             <v-col cols="8">
 <!--                <div v-for="cat in item.categoryList" class="ml-3">-->
@@ -23,7 +24,7 @@
         </v-row>
                 <div class="myHeader">
                     Производитель: {{item.manufacturer.name}}
-                    ddff
+
                 </div>
 
     </v-card>
@@ -33,7 +34,7 @@
     export default {
         name: "ProductSearchCard",
         props:{
-            item:Object
+            item:{}
         }
     }
 </script>
