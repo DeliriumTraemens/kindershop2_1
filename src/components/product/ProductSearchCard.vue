@@ -1,7 +1,7 @@
 <template>
     <v-card class="myCard">
         <div class="myHeader">{{item.name}}</div>
-        <div>{{item.id}}</div>
+        <div>Product Id {{item.id}} Category Id {{item.catId}}</div>
         <v-row class="myRow">
             <v-col cols="8">
 <!--                <div v-for="cat in item.categoryList" class="ml-3">-->
