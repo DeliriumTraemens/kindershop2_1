@@ -8,7 +8,7 @@
 <!--                    <h6> {{cat.name}} Id:{{cat.id}}</h6>-->
 <!--                </div>-->
                 <h6>Categories</h6>
-                <div v-for="cat in item.categoryList">
+                <div v-for="cat in item.categoryList" :key="cat.id">
                     <div class="myCatList">{{cat.name}} Id:{{cat.id}}</div>
                 </div>
             </v-col>

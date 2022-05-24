@@ -81,7 +81,10 @@ export default {
        async setManCatList(context,arg){
             const id = arg.id
             // alert(id)
-         await axios.get('http://localhost:9292/manufacturer/cat/'+id).then(res=>{
+         // await axios.get('http://localhost:9292/manufacturer/cat/'+id)
+                await axios.get('http://localhost:9292/cattemp/man/'+arg.id)
+
+                .then(res=>{
                 context.commit('manCatListMutation', res.data)
             })
         },
@@ -112,7 +115,10 @@ export default {
 
         async setSelectedManufacturer(context, arg) {
             // alert('Selected Manufacturer Id '+ arg.id)
-            await axios.get('http://localhost:9292/manufacturer/'+arg.id).then(res=>{
+            await axios.get('http://localhost:9292/manufacturer/'+arg.id)
+            //http://localhost:9292/cattemp/man/{id}/
+            // await axios.get('http://localhost:9292/cattemp/man/'+arg.id)
+                .then(res=>{
             context.commit('selectedManufacturerMutation', res.data);
             context.dispatch('setManCatList', arg)
 

@@ -1,6 +1,7 @@
 <template>
     <div>
-        <v-text-field @input="handleInput" label="Input" v-model="input"/>
+        <h4 class="mb-3">Live Search</h4>
+        <v-text-field @input="handleInput" label="Input Category Name" v-model="input"/>
         <hr class="my-3">
         <!--            <div>{{input}}</div>-->
         <hr class="my-3">
