@@ -1,6 +1,6 @@
 <template>
     <div class="node">
-        <h3>Man Cat List</h3>
+        <h3>Man Category List</h3>
         <div>
             <h4>Количество категорий: {{getManCatList.length}}</h4>
         </div>
