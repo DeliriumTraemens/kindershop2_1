@@ -2,7 +2,7 @@
     <div>
         <v-card @click="nodeClicked(nodes.id)" class="mt-2">
             <span
-                    v-if="nodes.childrenlist.length>0"
+                    v-if="nodes.children.length>0"
                     class="type"
                     style="font-size:10px; color: darkblue"
             >
@@ -18,7 +18,7 @@
 
         <div v-if="expanded" class="ml-3">
             <ManCategoryBrowser
-                    v-for="(child, indx) in nodes.childrenlist"
+                    v-for="(child, indx) in nodes.children"
                     :key="indx"
                     :nodes="child"/>
         </div>

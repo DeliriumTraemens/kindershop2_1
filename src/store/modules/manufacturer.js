@@ -82,7 +82,7 @@ export default {
             const id = arg.id
             // alert(id)
          // await axios.get('http://localhost:9292/manufacturer/cat/'+id)
-                await axios.get('http://localhost:9292/cattemp/man/'+arg.id)
+                await axios.get('http://localhost:9292/cattemp/man2/'+arg.id)
 
                 .then(res=>{
                 context.commit('manCatListMutation', res.data)
