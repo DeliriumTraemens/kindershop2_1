@@ -3,12 +3,14 @@
         <h1>Manufacturer List</h1>
             Количество производителей {{getManufacturerList.length}}
         <ManPaginationSelector />
-        <v-row >
-            <v-col v-for="(item) in getManufacturerList" :key="item.name">
+        <v-row class="overflow-y-auto" >
+<!--            <v-row>-->
+                <v-col v-for="(item) in getManufacturerList" :key="item.name">
 
-                <ManufacturerListCard :item="item"/>
+                    <ManufacturerListCard :item="item"/>
 
-            </v-col>
+                </v-col>
+<!--            </v-row>-->
         </v-row>
     </div>
 </template>

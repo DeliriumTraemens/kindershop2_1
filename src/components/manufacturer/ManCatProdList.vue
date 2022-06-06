@@ -2,9 +2,12 @@
 <div>
     ManCatProdList
     <h4>Количество товаров: {{getManProdCatList.length}}</h4>
-    <div v-for="(item) in getManProdCatList" :key="item.id">
-        <ProductSearchCard :item="item"/>
 
+    <div style="max-height: 650px" class="overflow-y-auto" >
+        <div v-for="(item) in getManProdCatList" :key="item.id" class="overflow-y-auto" id="prodCardList">
+            <ProductSearchCard :item="item"/>
+
+        </div>
     </div>
 </div>
 </template>
@@ -23,5 +26,6 @@
 </script>
 
 <style scoped>
+    #prodCardList{max-height:600px}
 
 </style>

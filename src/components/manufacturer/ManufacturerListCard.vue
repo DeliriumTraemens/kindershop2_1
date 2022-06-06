@@ -6,7 +6,7 @@
                 @drop="dropFile($event, item.id)"
         >
             <v-card-title>
-                {{item.name}} id{{item.id}}
+                {{item.name}} <br> id{{item.id}}
             </v-card-title>
 <!--            <v-card-subtitle>-->
 <!--                Количество товаров {{item.prodCatList.length}}-->
@@ -15,7 +15,7 @@
                     contain
                     :src="'http://localhost:9292/images/'+item.image"
                     transition="scale-transition"
-                    height="80px"
+                    height="50px"
             />
         </v-card>
 </template>
@@ -59,8 +59,8 @@
 
 <style scoped>
 #myCard{
-    width: 200px;
+    width: 150px;
     min-width: 150px;
-    height: 200px;
+    height: 150px;
 }
 </style>

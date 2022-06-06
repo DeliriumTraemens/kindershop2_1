@@ -1,18 +1,18 @@
 <template>
-    <div class="overflow-y-auto" style="max-height: 650px" id="list1">
+    <div  id="list1" >
 
-    <div  >
+        <div  >
         <h2>Product List</h2>
-        <div v-if="getCurrentProdList.length === 0" class="empty-box">
+            <div v-if="getCurrentProdList.length === 0" class="empty-box" >
             <h2>Категория без товаров id: {{getSelectedCategoryId}}</h2>
         </div>
-        <div v-for="(prod,idx) in getCurrentProdList" :key="idx" >
-            {{idx+1}}
+            <div style="max-height: 650px" class="overflow-y-auto" >
+                <div v-for="(prod,idx) in getCurrentProdList" :key="idx">
+                    {{idx+1}}
 
-            <ProductListCard :prod="prod" />
-<!--<div id="showScroll">aaaa</div>-->
-<!--            <LazyLoader />-->
-        </div>
+                    <ProductListCard :prod="prod"/>
+                </div>
+            </div>
     </div>
 
     </div>

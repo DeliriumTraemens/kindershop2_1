@@ -2,7 +2,7 @@
     <div>
         <h1 class="mb-5">Shop Trainer</h1>
         <v-row>
-            <v-col cols="4" class="overflow-y-auto" style="max-height: 550px">
+            <v-col cols="4" style="max-height: 550px">
                 <ManufacturerList />
             </v-col>
             <v-col>
@@ -26,7 +26,7 @@
 
                 </div>
             </v-col>
-            <v-col cols="4" class="overflow-y-auto" style="max-height: 550px">
+            <v-col cols="4" style="max-height: 550px">
                 <h3>Cat Prod</h3>
                 <ManCatProdList />
 

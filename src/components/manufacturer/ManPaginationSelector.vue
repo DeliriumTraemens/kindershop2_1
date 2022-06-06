@@ -28,7 +28,7 @@
 
 <style scoped>
     .myCounter{
-        max-width: 400px;
+        /*max-width: 400px;*/
         margin-bottom: 20px;
         border: 1px solid;
         padding: 5px;

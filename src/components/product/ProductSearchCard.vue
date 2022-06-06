@@ -1,9 +1,10 @@
 <template>
     <v-card class="myCard">
         <div class="myHeader">{{item.name}}</div>
-        <div style="color:darkblue">Product Id {{item.id}}  <--->  Category Id {{item.id}}</div>
+        <div style="color:#f6ec94; padding-left:8px">Product Id {{item.id}}</div>
+<!--        <div style="color:darkblue">Product Id {{item.id}}  <-&ndash;&gt;  Category Id {{item.id}}</div>-->
         <v-row class="myRow">
-            <v-col cols="8">
+            <v-col cols="7">
 <!--                <div v-for="cat in item.categoryList" class="ml-3">-->
 <!--                    <h6> {{cat.name}} Id:{{cat.id}}</h6>-->
 <!--                </div>-->
@@ -12,13 +13,13 @@
                     <div class="myCatList">{{cat.name}} Id:{{cat.id}}</div>
                 </div>
             </v-col>
-            <v-col>
+            <v-col cols="5">
 <!--                        :src="'http://localhost:9292/images/'+item.image"-->
                 <v-img
                         :src="'http://kinder.ru/image/'+item.image"
                         contain
                         transition="scale-transition"
-                        width="150"
+                        height="120"
                 />
             </v-col>
         </v-row>
@@ -41,17 +42,18 @@
 
 <style scoped>
     .myCard{
-        background-color:sandybrown;
+        background-color: #874205;
         min-height: 150px;
         border:1px solid;
         border-radius: 4px;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
         padding: 3px;
     }
     .myHeader{
         border:1px solid;
         background-color:white;
         margin: 3px;
+        padding-left: 5px;
         /*font-family: "Times New Roman";*/
         font-size: 16px;
         /*line-height: 16px;*/
