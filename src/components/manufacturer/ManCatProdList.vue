@@ -1,14 +1,17 @@
 <template>
 <div>
     ManCatProdList
-    <h4>Количество товаров: {{getManProdCatList.length}}</h4>
 
     <div style="max-height: 650px" class="overflow-y-auto px-3" >
-        <div v-for="(item) in getManProdCatList" :key="item.id" class="overflow-y-auto" id="prodCardList">
-            <ProductSearchCard :item="item"/>
 
-        </div>
-    </div>
+        <v-row cols="3" class="pt-3">
+                    <div v-for="(item) in getManProdCatList" :key="item.id" id="prodCardList">
+                        <ProductSearchCard :item="item"/>
+                    </div>
+
+        </v-row>
+
+    </div><!--Scroller End-->
 </div>
 </template>
 

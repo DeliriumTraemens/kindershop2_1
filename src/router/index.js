@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import ShopCommander from "../views/ShopCommander";
 import ShopTrainer from "../views/ShopTrainer";
+import CategorySearch from "../views/CategorySearch";
+import ProductSearch from "../views/ProductSearch";
 
 Vue.use(VueRouter)
 
@@ -21,6 +23,16 @@ const routes = [
     path: '/trainer',
     name: 'ShopTrainer',
     component: ShopTrainer
+  },
+  {
+    path: '/catSearch',
+    name: 'CategorySearch',
+    component: CategorySearch
+  },
+  {
+    path: '/prodSearch',
+    name: 'ProductSearch',
+    component: ProductSearch
   },
   {
     path: '/about',

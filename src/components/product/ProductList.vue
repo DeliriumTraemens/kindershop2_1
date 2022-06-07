@@ -6,13 +6,14 @@
             <div v-if="getCurrentProdList.length === 0" class="empty-box" >
             <h2>Категория без товаров id: {{getSelectedCategoryId}}</h2>
         </div>
-            <div style="max-height: 650px" class="overflow-y-auto" >
-                <div v-for="(prod,idx) in getCurrentProdList" :key="idx">
-                    {{idx+1}}
-
-                    <ProductListCard :prod="prod"/>
+                <div style="max-height: 650px" class="overflow-y-auto">
+                    <v-row  >
+                        <div v-for="(prod,idx) in getCurrentProdList" :key="idx">
+                            {{idx+1}}
+                            <ProductListCard :prod="prod"/>
+                        </div>
+                    </v-row>
                 </div>
-            </div>
     </div>
 
     </div>

@@ -1,39 +1,30 @@
 <template>
     <div>
-        <h1 class="mb-5">Shop Trainer</h1>
-        <v-row>
-            <v-col cols="4" style="max-height: 550px">
-                <ManufacturerList />
+        <v-row class="mx-2">
+            <h1 class="mb-1 mt-1">Shop Trainer</h1>
+            <v-col cols="12" >
+                <ManufacturerList/>
             </v-col>
-            <v-col>
-                <h1>Product List</h1>
-                <div >
+        </v-row>
+        <v-row>
+            <v-col cols="3">
+                        <h2>{{getSelectedManufacturer.name}} </h2>
                     <div >
-                        <h1>
-<!--                        {{getSelectedManufacturer.name}}-->
-                    </h1>
-<!--                        <h4>Количество товаров: {{getSelectedManufacturer.prodCatList.length}}</h4>-->
+<!--                        <h5>Количество товаров: {{getSelectedManufacturer.prodCatList.length}}</h5>-->
                     </div>
-<!--                    <div class="overflow-y-auto" style="max-height: 550px">-->
-<!--                        <div v-for="(item,i) in getSelectedManufacturer.prodCatList" :key="i">-->
-<!--                            <div>FFF</div>-->
-<!--                            <ProductSearchCard :item="item"/>-->
-<!--                        </div>-->
-<!--                    </div>-->
-
-                <h3>Categories</h3>
-                <ManCategoryList />
-
+                <h1>Category List</h1>
+                <div>
+                    <ManCategoryList />
                 </div>
             </v-col>
-            <v-col cols="4" style="max-height: 550px">
-                <h3>Cat Prod</h3>
-                <ManCatProdList />
+            <v-col cols="9">
+
+                        <ManCatProdList/>
+
 
             </v-col>
 
-            <v-col class="overflow-y-auto" style="max-height: 550px">
-            </v-col>
+
         </v-row>
     </div>
 </template>

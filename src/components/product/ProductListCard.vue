@@ -1,5 +1,5 @@
 <template>
-    <v-card class="mb-4" style="max-width: 350px">
+    <v-card class="mb-4" style="max-width: 300px;margin: 4px; padding: 3px">
 
 <!--                :src="'http://localhost:9292/images/'+prod.image"-->
         <v-img
@@ -13,7 +13,7 @@
         <hr class="my-4">
 
         <v-card-title   class="d-inline-block text-truncate"
-                        style="max-width: 350px;">
+                        style="max-width: 290px;">
             {{prod.name}}
         </v-card-title>
         <v-card-subtitle>

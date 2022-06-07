@@ -43,20 +43,24 @@
 <style scoped>
     .myCard{
         background-color: #874205;
+        max-width:400px;
         min-height: 150px;
         border:1px solid;
         border-radius: 4px;
+        /*margin-top: 10px;*/
         margin-bottom: 10px;
+        margin-left: 5px;
         padding: 3px;
     }
     .myHeader{
         border:1px solid;
-        background-color:white;
+        background-color: #f5e8b4;
         margin: 3px;
         padding-left: 5px;
+        padding-bottom: 3px;
         /*font-family: "Times New Roman";*/
         font-size: 16px;
-        /*line-height: 16px;*/
+        line-height: 18px;
     }
     .myRow{
         border:1px solid;

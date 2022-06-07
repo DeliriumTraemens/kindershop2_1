@@ -9,20 +9,24 @@
 
         <div class="overflow-y-auto" style="max-height: 550px" id="list1">
 
-            <div v-for="item in result" :key="item.id" >
-                <div @click="itemClicked(item)">
-                    <v-layout justify-space-between
-                    >
-                        <div class="search_res">{{item.name}} <strong>Id {{item.id}}</strong> </div>
-                        <v-layout>
-                            <v-btn x-small color="orange" @click="catRemove(item.id)">–</v-btn>
-                        </v-layout>
+                <div v-for="item in result" :key="item.id">
+
+                    <v-card class="mb-2" >
+                        <div @click="itemClicked(item)">
+                            <v-row>
+                                <v-col cols="10">
+                                    <div>{{item.name}}<br> <strong>Id {{item.id}}</strong></div>
 
 
-                    </v-layout>
+                                </v-col>
+                                <v-col>
+                                    <v-btn x-small color="orange" @click="catRemove(item.id)">–</v-btn>
+                                </v-col>
+                            </v-row>
+                        </div>
+                    </v-card>
+                    <!--            <p>{{item}}</p>-->
                 </div>
-                <!--            <p>{{item}}</p>-->
-            </div>
         </div>
 
     </div>

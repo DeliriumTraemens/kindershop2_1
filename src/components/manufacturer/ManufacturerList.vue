@@ -1,8 +1,14 @@
 <template>
     <div>
-        <h1>Manufacturer List</h1>
-            Количество производителей {{getManufacturerList.length}}
-        <ManPaginationSelector />
+        <v-row>
+            <v-col><h1>Manufacturer List</h1></v-col>
+            <v-col>Количество производителей {{getManufacturerList.length}}</v-col>
+            <v-col>
+                <ManPaginationSelector />
+            </v-col>
+        </v-row>
+
+
         <v-row class="overflow-y-auto" >
 <!--            <v-row>-->
                 <v-col v-for="(item) in getManufacturerList" :key="item.name">

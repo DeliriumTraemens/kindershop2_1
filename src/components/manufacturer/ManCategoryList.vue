@@ -6,10 +6,6 @@
         </div>
         <hr class="my-3">
         <div>
-<!--            <div v-for="(item, i) in getManCatList" :key="i">-->
-<!--                <ManCategoryCard :item="item"/>-->
-<!--            </div>-->
-<!--        {{getManCatList}}-->
         </div>
         <ManCategoryBrowser v-for="nodes in getManCatList " :nodes="nodes"/>
     </div>
