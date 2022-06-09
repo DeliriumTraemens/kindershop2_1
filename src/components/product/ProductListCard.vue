@@ -25,13 +25,16 @@
         </v-card-text>
         <v-card-actions>
             <v-btn x-small >Show</v-btn>
+            <ProductShowDialog :product="prod"/>
         </v-card-actions>
     </v-card>
 </template>
 
 <script>
+    import ProductShowDialog from "./ProductShowDialog";
     export default {
         name: "ProductListCard",
+        components: {ProductShowDialog},
         props: {
             prod: Object
         }

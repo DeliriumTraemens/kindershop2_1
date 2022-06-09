@@ -11,16 +11,20 @@
 
                 <div v-for="item in result" :key="item.id">
 
-                    <v-card class="mb-2" >
-                        <div @click="itemClicked(item)">
+                    <v-card class="mb-2" id="catSearchCard">
+                        <div @click="itemClicked(item)" >
                             <v-row>
                                 <v-col cols="10">
-                                    <div>{{item.name}}<br> <strong>Id {{item.id}}</strong></div>
-
+                                    <v-card id="labelCard">
+                                        <div>{{item.name}}<br> <strong>Id {{item.id}}</strong></div>
+                                    </v-card>
 
                                 </v-col>
                                 <v-col>
-                                    <v-btn x-small color="orange" @click="catRemove(item.id)">–</v-btn>
+                                    <div id="buttonCard">
+                                        <v-btn x-small color="orange" @click="catRemove(item.id)">–</v-btn>
+
+                                    </div>
                                 </v-col>
                             </v-row>
                         </div>
@@ -73,6 +77,29 @@
 </script>
 
 <style scoped>
+
+    #catSearchCard{
+
+        /*background-color: #ffff00;*/
+        margin-bottom: 3px;
+        height: 70px;
+        /*padding: 5px;*/
+        /*padding: 8px;*/
+    }
+    #labelCard{
+        background-color: #f6ec94;
+        /*margin-bottom: 3px;*/
+        padding-left: 1em;
+        padding-right:3px;
+        margin-right: 1px;
+        height:100%;
+    }
+    #buttonCard{
+        border-left: 1px solid;
+        padding: 2px;
+        height:100%;
+        margin-left: 1px;
+    }
 
     .search_res {
         margin-bottom: 5px;

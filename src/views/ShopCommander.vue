@@ -1,8 +1,8 @@
 <template>
     <div>
         <h2>Shop Commander</h2>
-        <v-row>
-            <v-col>
+        <v-row class="pl-2">
+            <v-col >
                 <h3>
                 Left
                 <hr class="mb-4">

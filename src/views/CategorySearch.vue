@@ -1,15 +1,15 @@
 <template>
     <div>
         <h1>Category Search</h1>
-        <v-row>
-            <v-col cols="3">
+        <v-row class="pl-2">
+            <v-col cols="3" >
                 <h3>
                     Left
                     <hr class="mb-4">
                 </h3>
                 <LiveSearch />
-            </v-col>
-            <v-col>
+            </v-col >
+            <v-col class="pr-5">
                 <h3>Center</h3>
                 <hr class="mb-4">
                 <ProductList />
