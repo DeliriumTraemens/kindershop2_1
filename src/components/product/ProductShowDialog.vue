@@ -13,6 +13,8 @@
                         dark
                         v-bind="attrs"
                         v-on="on"
+                        @click="dialogOpen"
+
                 >
                     Show Product
                 </v-btn>
@@ -25,7 +27,7 @@
                     <v-btn
                             icon
                             dark
-                            @click="dialog = false"
+                            @click="closeDialog"
                     >
                         <v-icon>mdi-close</v-icon>
                     </v-btn>
@@ -45,7 +47,9 @@
                    <v-col cols="7">Picture
                    <div id="mainPicture">
                        <v-img
-                               width="400px"
+                               width="500px"
+                               contain
+                               transition="scale-transition"
                                :src="'http://kinder.ru/image/'+pick"
                        />
                    </div>
@@ -54,14 +58,16 @@
                    </v-col>
                    <v-col cols="5" >Right
                        <v-card>
-                           <v-card-title> {{prodCard.name}}</v-card-title>
+                           <v-card-title> ProdCard {{prodCard.name}}</v-card-title>
                            <hr class="my-2">
                            <v-card-subtitle>
+                               <h4>Id: {{prodCard.id}}</h4>
                                <h5>Model: {{prodCard.model}}</h5>
                                 <h5>Article: {{prodCard.article}} </h5>
                                <h5>UPC: {{prodCard.upc}}</h5>
                            </v-card-subtitle>
                            <v-card-text>
+                               <h3>{{prodCard.manufacturer.name}}</h3><br>
                                <v-row>
                                    <v-col cols="2"><h3 style="color:darkred">Price:</h3></v-col>
                                    <v-col cols="2">
@@ -81,12 +87,14 @@
                 <v-row class="px-3">
                     <v-col cols="7">
 
-                        <<v-row cols="6">
-                        <div v-for="picture in prodCard.images" :key="picture.id">
+                        <v-row >
+                        <div v-for="picture in imageList" :key="picture.id">
                             <div class="smallPic" @click="setPick(picture.image)">
                                 <v-img
                                         width="70px"
                                         :src="'http://kinder.ru/image/'+picture.image"
+                                        contain
+                                        transition="scale-transition"
                                 />
                             </div>
                         </div>
@@ -104,19 +112,22 @@
                     <v-list-item>
                         <v-list-item-content>
                             <v-list-item-title>
-                                <h2>{{product.name}}</h2>
+                                <h2>Product {{product.name}}</h2>
                             </v-list-item-title>
                             <v-list-item-title><h3>Id {{product.id}} </h3> </v-list-item-title>
                             <v-divider></v-divider>
                             <v-list-item-subtitle>Set the content filtering level to restrict apps that can be downloaded</v-list-item-subtitle>
                         </v-list-item-content>
                     </v-list-item>
+                    <v-card>
+                        {{prodCard.description}}
+                    </v-card>
                     <v-list-item>
                         <v-list-item-content>
                             <v-list-item-title>Description</v-list-item-title>
-                            <v-list-item-subtitle>{{product.description}}</v-list-item-subtitle>
+                            <v-list-item-subtitle>{{prodCard.description}}</v-list-item-subtitle>
                             <v-list-item-title>Price</v-list-item-title>
-                            <v-list-item-subtitle>{{product.price}} руб</v-list-item-subtitle>
+                            <v-list-item-subtitle>{{prodCard.price}} руб</v-list-item-subtitle>
                         </v-list-item-content>
 
                     </v-list-item>
@@ -177,19 +188,33 @@
                 prodCard: {},
                 dialog: false,
                 pick: String,
+                imageList:[],
                 notifications: false,
                 sound: true,
                 widgets: false,
             }
         },
-        mounted() {
-             axios.get('http://localhost:9292/prodshow/'+this.product.id).then(res=>{
-                console.log(res.data)
+        async created() {
+            const idx = this.$props.product.id
+             // await axios.get('http://localhost:9292/prodshow/'+this.product.id).then(res=>{
+             await axios.get('http://localhost:9292/prodshow/'+idx).then(res=>{
                 this.prodCard=res.data
                 this.pick=res.data.image
+                this.imageList=res.data.images
+                // console.log(res.data)
+                // console.log(this.prodCard)
+                 // this.imageList.push
             })
         },
+
         methods: {
+            closeDialog(){
+
+                this.dialog = false
+            },
+            dialogOpen(){
+                alert('GGG')
+            },
             setPick(picture){
                 this.pick=picture
             }

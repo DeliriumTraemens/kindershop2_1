@@ -70,8 +70,8 @@ export default {
             // await axios.get('http://localhost:9292/category').then(res => {
             await axios.get('http://localhost:9292/catalog').then(res => {
                 context.commit('categoryListMutation', res.data)
-                console.log('Catalog List')
-                console.log(res.data)
+                // console.log('Catalog List')
+                // console.log(res.data)
             })
         },
         removeCategory(context, arg) {

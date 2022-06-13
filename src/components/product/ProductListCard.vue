@@ -24,20 +24,31 @@
 <!--            <div class="textdescr">{{prod.description}}</div>-->
         </v-card-text>
         <v-card-actions>
-            <v-btn x-small >Show</v-btn>
-            <ProductShowDialog :product="prod"/>
+            <v-btn x-small @click="showProductPage(prod)">Show</v-btn>
+
+<!--            <ProductShowDialog :product="prod"/>-->
         </v-card-actions>
     </v-card>
 </template>
 
 <script>
-    import ProductShowDialog from "./ProductShowDialog";
+    // import ProductShowDialog from "./ProductShowDialog";
+    import {mapActions} from "vuex";
     export default {
         name: "ProductListCard",
-        components: {ProductShowDialog},
+        components: {
+            // ProductShowDialog
+        },
         props: {
             prod: Object
-        }
+        },
+        methods: {
+            ...mapActions(['setCurrentProduct']),
+           showProductPage(prod){
+                 this.$store.dispatch('setCurrentProduct', prod)
+                 this.$router.push('/product')
+            }
+        },
     }
 </script>
 

@@ -5,6 +5,7 @@ import ShopCommander from "../views/ShopCommander";
 import ShopTrainer from "../views/ShopTrainer";
 import CategorySearch from "../views/CategorySearch";
 import ProductSearch from "../views/ProductSearch";
+import ProductPage from "../views/ProductPage";
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,11 @@ const routes = [
     path: '/prodSearch',
     name: 'ProductSearch',
     component: ProductSearch
+  },
+  {
+    path: '/product',
+    name: 'ProductPage',
+    component: ProductPage
   },
   {
     path: '/about',
