@@ -2,25 +2,25 @@
     <div>
         <h1>ProductPage</h1>
         <v-row>
-            <h2>{{getCurrentProductCard.name}}</h2>
+            <h2>{{product.name}}</h2>
             <v-col cols="7">
-                <div>
+                <div id="mainPicture">
                     <v-img
-                            width="400px"
+                            width="600px"
                             contain
                             transition="scale-transition"
-                            :src="'http://kinder.ru/image/'+getCurrentProductCard.image"
+                            :src="'http://kinder.ru/image/'+pick"
                     />
                 </div>
                 <!--                            :src="'http://kinder.ru/image/'+getCurrentProductCard.image"-->
                 <!--                            :src="'http://localhost:9292/images/'+pick"-->
-                <v-row>
+                <v-row class="smallPickRow">
                     <!--                    <div v-for="picture in images" :key="picture.id">-->
-                    <div v-for="picture in getCurrentProductCard.images" :key="picture.id">
-                        <div class="smallPick" @click="setPick(picture)">
+                    <div v-for="picture in pictures" :key="picture.id" >
+                        <div  @click="setPick(picture)" id="smallPick">
                             <v-img
                                     width="70px"
-                                    :src="'http://kinder.ru/image/'+picture.image"
+                                    :src="'http://kinder.ru/image/'+picture"
                                     contain
                                     transition="scale-transition"
                             />
@@ -32,10 +32,7 @@
             <v-col cols="5">
                 <v-card>
                     <v-card-title>
-                        ProductName <br>
                         {{product.name}}<br>
-                        Getternme <br>
-                        {{getCurrentProductCard.name}}
                     </v-card-title>
                     <v-card-subtitle>
 
@@ -72,7 +69,7 @@
                         <div>Image: {{pick}}</div>
                         <hr>
                         <div> Kartinkes</div>
-                        <div v-for="pict in images" :key="pict.id">
+                        <div v-for="pict in pictures" :key="pict.id">
                             <h5>{{pict}}</h5>
                         </div>
                     </v-card-text>
@@ -84,72 +81,71 @@
 </template>
 
 <script>
-    import {mapGetters} from 'vuex'
+    import axios from 'axios';
+    import {mapGetters, mapMutations} from 'vuex';
 
     export default {
         name: "ProductPage",
         data() {
             return {
                 product: {
-                    article: '',
-                    catId: Number,
-                    description: '',
-                    height: Number,
-                    id: Number,
-                    image: '',
-                    images: [],
-                    isbn: '',
-                    length: Number,
-                    manufacturer: {},
-                    model: '',
-                    name: '',
-                    points: Number,
-                    price: Number,
-                    quantity: Number,
-                    status: Number,
-                    upc: '',
-                    viewed: Number,
-                    weight: Number,
-                    width: Number
+                    // article: '',
+                    // catId: Number,
+                    // description: '',
+                    // height: Number,
+                    // id: Number,
+                    // image: '',
+                    // images: [],
+                    // isbn: '',
+                    // length: Number,
+                    // manufacturer: {},
+                    // model: '',
+                    // name: '',
+                    // points: Number,
+                    // price: Number,
+                    // quantity: Number,
+                    // status: Number,
+                    // upc: '',
+                    // viewed: Number,
+                    // weight: Number,
+                    // width: Number
                 },
                 pick: String,
-                images: []
+                pictures: []
             }
         },
         computed: {
-            ...mapGetters(['getCurrentProductCard']),
-            // computeProduct(){
-            //     this.product = this.getCurrentProductCard
-            //     this.pick = this.getCurrentProductCard.image
-            // }
+            ...mapGetters(['getCurrentProductId']),
+
         },
         created() {
-            this.initProduct()
-            this.pick = this.getCurrentProductCard.image
+            this.getProduct();
 
 
 
         },
         methods: {
-            buildImages(pictures) {
-                this.images.push(this.getCurrentProductCard.image);
-                pictures.forEach(i => {
-                    this.images.push(i.image)
+            ...mapMutations(['currentProductIdMutation']),
+
+            async getProduct() {
+                const idp = this.getCurrentProductId
+                // alert(idp)
+                await axios.get('http://localhost:9292/prodshow/'+idp).then(result =>{
+                    this.product= result.data
+                })
+
+                this.pick = this.product.image
+                this.buildImages(this.product.images)
+
+            },
+
+            buildImages(picks) {
+                this.pictures.push(this.product.image);
+                picks.forEach(i => {
+                    this.pictures.push(i.image)
                 })
             },
-            initProduct() {
-                {
-                    this.product.name = this.getCurrentProductCard.name
-                    this.product.id = this.getCurrentProductCard.id
-                    this.product.model = this.getCurrentProductCard.model
-                    this.product.article = this.getCurrentProductCard.article
-                    this.pick = this.getCurrentProductCard.image,
-                        this.buildImages(this.getCurrentProductCard.images)
-                console.log('initProduct Product')
-                console.log(this.product)
 
-            }
-                },
             setPick(picture) {
                 this.pick = picture
             },
@@ -170,16 +166,23 @@
 
 <style scoped>
     #mainPicture {
-        /*margin: 5px;*/
+        margin: 5px;
         padding: 5px;
         border: 1px solid;
         border-radius: 4px;
+        max-height: 400px;
     }
 
-    .smallPick {
+    .smallPickRow {
         margin-top: 10px;
-        margin-left: 10px;
-        padding: 3px;
+        margin-left: 5px;
+        padding-left: 3px;
+        border: 1px solid;
+        border-radius: 6px;
+    }
+
+    #smallPick{
+        margin: 6px;
         border: 1px solid;
         border-radius: 6px;
     }

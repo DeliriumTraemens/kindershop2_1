@@ -33,7 +33,7 @@
 
 <script>
     // import ProductShowDialog from "./ProductShowDialog";
-    import {mapActions} from "vuex";
+    import {mapActions, mapMutations} from "vuex";
     export default {
         name: "ProductListCard",
         components: {
@@ -44,8 +44,11 @@
         },
         methods: {
             ...mapActions(['setCurrentProduct']),
-           showProductPage(prod){
+            ...mapMutations(['currentProductIdMutation']),
+
+            showProductPage(prod){
                  this.$store.dispatch('setCurrentProduct', prod)
+                this.$store.commit('currentProductIdMutation', prod.id)
                  this.$router.push('/product')
             }
         },
