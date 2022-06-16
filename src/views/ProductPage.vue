@@ -2,16 +2,18 @@
     <div>
         <h1>ProductPage</h1>
         <v-row>
-            <h2>{{product.name}}</h2>
             <v-col cols="7">
-                <div id="mainPicture">
-                    <v-img
-                            width="600px"
-                            contain
-                            transition="scale-transition"
-                            :src="'http://kinder.ru/image/'+pick"
-                    />
-                </div>
+            <h2>{{product.name}}</h2>
+                <v-row id="mainPicture">
+                    <div >
+                        <v-img
+                                width="400px"
+                                contain
+                                transition="scale-transition"
+                                :src="'http://kinder.ru/image/'+pick"
+                        />
+                    </div>
+                </v-row>
                 <!--                            :src="'http://kinder.ru/image/'+getCurrentProductCard.image"-->
                 <!--                            :src="'http://localhost:9292/images/'+pick"-->
                 <v-row class="smallPickRow">
@@ -88,28 +90,7 @@
         name: "ProductPage",
         data() {
             return {
-                product: {
-                    // article: '',
-                    // catId: Number,
-                    // description: '',
-                    // height: Number,
-                    // id: Number,
-                    // image: '',
-                    // images: [],
-                    // isbn: '',
-                    // length: Number,
-                    // manufacturer: {},
-                    // model: '',
-                    // name: '',
-                    // points: Number,
-                    // price: Number,
-                    // quantity: Number,
-                    // status: Number,
-                    // upc: '',
-                    // viewed: Number,
-                    // weight: Number,
-                    // width: Number
-                },
+                product: {},
                 pick: String,
                 pictures: []
             }
@@ -170,7 +151,8 @@
         padding: 5px;
         border: 1px solid;
         border-radius: 4px;
-        max-height: 400px;
+        max-height: 450px;
+        max-width: 100%;
     }
 
     .smallPickRow {
@@ -179,11 +161,13 @@
         padding-left: 3px;
         border: 1px solid;
         border-radius: 6px;
+        max-width: 100%;
     }
 
     #smallPick{
         margin: 6px;
         border: 1px solid;
         border-radius: 6px;
+        height: 75px;
     }
 </style>

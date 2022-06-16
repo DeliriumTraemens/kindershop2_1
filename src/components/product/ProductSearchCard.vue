@@ -27,15 +27,26 @@
                     Производитель: <strong>{{item.manufacturer.name}}</strong>
 
                 </div>
+        <v-btn x-small @click="showProduct(item)">Show</v-btn>
 
     </v-card>
 </template>
 
 <script>
+    import {mapMutations} from 'vuex';
     export default {
         name: "ProductSearchCard",
         props:{
             item:{}
+        },
+        methods:{
+            ...mapMutations(['currentProductIdMutation']),
+            showProduct(item){
+                this.$store.commit('currentProductIdMutation', item.id)
+                this.$router.push('/product')
+
+
+            }
         }
     }
 </script>
