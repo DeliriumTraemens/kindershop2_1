@@ -23,7 +23,7 @@
 <script>
     import {mapActions} from 'vuex';
     export default {
-        name: "ManufacturerListCard",
+        name: "ManufacturerListCardAlphabet",
         props: {
             item: {}
         },
@@ -37,15 +37,15 @@
             }
         },
         methods: {
-            ...mapActions(['editPicture', 'setSelectedManufacturer']),
+            ...mapActions(['editPicture', 'editPictureAlphabet','setSelectedManufacturer']),
 
              dropFile(e, id){
                 // this.File=e.dataTransfer.files
                 this.manufacturer.id=id
                 this.manufacturer.file=e.dataTransfer.files
                 // console.log('Man Id '+this.manufacturer.id)
-
-                this.$store.dispatch('editPicture', this.manufacturer)
+                 //Add editPictureAlphabet to $store
+                this.$store.dispatch('editPictureAlphabet', this.manufacturer)
                 // console.log(e.dataTransfer.files)
             },
             dragover(){

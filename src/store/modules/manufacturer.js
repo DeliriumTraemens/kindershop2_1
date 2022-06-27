@@ -8,7 +8,9 @@ export default {
         totalManPages: Number,
         manProdList: [],
         manProdCatList:{},
-        manCatList:[]
+        manCatList:[],
+        letter:'',
+        letterList:[]
     },
     getters: {
         getManufacturerList(state) {
@@ -28,6 +30,12 @@ export default {
         },
         getManCatList(state){
           return state.manCatList
+        },
+        getLetter(state){
+            return state.letter
+        },
+        getLetterList(state){
+            return state.letterList
         }
     },
     mutations: {
@@ -49,10 +57,23 @@ export default {
         },
         manCatListMutation(state, arg){
             state.manCatList = arg
+        },
+        letterMutation(state, arg){
+            state.letter = arg
+        },
+        letterListMutation(state, arg){
+            state.letterList = arg
         }
 
     },
     actions: {
+        setLetterList(context){
+            axios.get('http://localhost:9292/manufacturer/letter',{params:{
+                letter:context.getters.getLetter
+            }}).then(res =>{
+                context.commit('letterListMutation', res.data)
+            })
+        },
         setManufacturerList(context) {
             axios.get('http://localhost:9292/manufacturer', {
 
@@ -87,6 +108,22 @@ export default {
                 .then(res=>{
                 context.commit('manCatListMutation', res.data)
             })
+        },
+
+        async editPictureAlphabet(context,arg){
+            //BlaBla for fillletterList
+            const sd = new FormData();
+            const fileSend = arg.file[0]
+            sd.append('id', String(arg.id))
+            sd.append('letter', context.getters.getLetter)
+            sd.append('file', fileSend)
+
+            await axios.post('http://localhost:9292/manufacturer/editPickAlphabet', sd).then(res=>{
+                context.commit('letterListMutation', res.data)
+                console.log('Picture Alphabet')
+                console.log(res.data)
+            })
+
         },
 
         async editPicture(context, arg) {

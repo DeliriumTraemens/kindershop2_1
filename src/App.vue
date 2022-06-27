@@ -32,6 +32,7 @@
       <v-btn @click="categorySearh" x-small color="green" class="mr-2">Category Search</v-btn>
       <v-btn @click="productSearch" x-small color="green" class="mr-2">Product Search</v-btn>
       <v-btn @click="shop_trainer" x-small color="red">Shop Trainer</v-btn>
+      <v-btn @click="shop_trainer2" x-small color="red">Manufacturers</v-btn>
 
 
       <v-spacer></v-spacer>
@@ -69,6 +70,9 @@ export default {
     },
     shop_trainer(){
       this.$router.push('/trainer')
+    },
+    shop_trainer2(){
+      this.$router.push('/trainer2')
     },
     categorySearh(){
       this.$router.push('/catSearch')

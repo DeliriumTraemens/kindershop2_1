@@ -1,7 +1,8 @@
 <template>
     <div>
-        <v-row class="mx-2">
             <h1 class="mb-1 mt-1">Shop Trainer</h1>
+        <v-row class="mx-2">
+            <Alphabet/>
             <v-col cols="12" >
                 <ManufacturerList/>
             </v-col>
@@ -35,9 +36,10 @@
     import ProductSearchCard from "../components/product/ProductSearchCard";
     import ManCategoryList from "../components/manufacturer/ManCategoryList";
     import ManCatProdList from "../components/manufacturer/ManCatProdList";
+    import Alphabet from "../components/Alphabet";
     export default {
         name: "ShopTrainer",
-        components: {ManCatProdList, ManCategoryList, ProductSearchCard, ManufacturerList},
+        components: {Alphabet, ManCatProdList, ManCategoryList, ProductSearchCard, ManufacturerList},
         data(){
             return{
                 File: []

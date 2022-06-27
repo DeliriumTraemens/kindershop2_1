@@ -1,6 +1,7 @@
 <template>
     <div>
         <h4 class="mb-3">Live Search</h4>
+        <h6>TODO мб имеет смысл передавать результат поиска в Стор</h6>
         <v-text-field @input="handleInput" label="Input Category Name" v-model="input"/>
         <hr class="my-3">
         <!--            <div>{{input}}</div>-->

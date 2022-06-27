@@ -25,6 +25,7 @@
         </v-card-text>
         <v-card-actions>
             <v-btn x-small @click="showProductPage(prod)">Show</v-btn>
+            <v-btn x-small color="danger">Show Modal</v-btn>
 
 <!--            <ProductShowDialog :product="prod"/>-->
         </v-card-actions>
