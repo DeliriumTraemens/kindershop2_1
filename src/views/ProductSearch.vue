@@ -8,12 +8,19 @@
             </v-col>
             <v-col cols="9">
                 <div id="searchheader">Search block and results</div>
-                    <v-col cols="9" >
+                <v-row>
+                    <v-col cols="9">
                         <v-text-field class="input-field-1" label="Inputs Products Name" v-model="input"/>
                     </v-col>
                     <v-col cols="3">
                         <v-btn @click="find()" color="orange" waves>Find</v-btn>
                     </v-col>
+                </v-row>
+                <v-row>
+                    <div v-for="item in 40">
+                        <div class="box1">{{item}}</div>
+                    </div>
+                </v-row>
             </v-col>
         </v-row>
 
@@ -73,4 +80,11 @@
     border:1px solid;
     border-radius: 4px;
 }
+    .box1{
+        width: 50px;
+        height: 50px;
+        border: 1px solid;
+        border-radius: 4px;
+        margin: 3px;
+    }
 </style>

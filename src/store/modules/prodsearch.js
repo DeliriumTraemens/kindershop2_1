@@ -49,6 +49,16 @@ export default{
     actions: {
         searchProducts(context, arg){
             alert('Your entered \'' + arg+'\''+typeof(arg))
+            const sd = new FormData();
+            sd.append('name', arg)
+
+            axios.post('http://localhost:9292/prodcat/search', sd,
+                {
+                    maxContentLength: 0,
+                    maxBodyLength: 0
+                }).then(res=>{
+                    console.log(res.data)
+            })
         }
     }
 }

@@ -17,8 +17,9 @@
             <v-col>
                 <h3>Right</h3>
                 <hr class="mb-4">
-                <ProductSearchCard />
-                <hr class="mb-4">
+
+<!--                <ProductSearchCard />-->
+<!--                <hr class="mb-4">-->
 
                 <ProductLiveSearch />
             </v-col>
@@ -30,10 +31,10 @@
     import LiveSearch from "../components/common_ui/LiveSearch";
     import ProductList from "../components/product/ProductList";
     import ProductLiveSearch from "../components/common_ui/ProductLiveSearch";
-    import ProductSearchCard from "../components/product/ProductSearchCard";
+    // import ProductSearchCard from "../components/product/ProductSearchCard";
     export default {
         name: "ShopCommander",
-        components: {ProductSearchCard, ProductLiveSearch, ProductList, LiveSearch}
+        components: {ProductLiveSearch, ProductList, LiveSearch}
     }
 </script>
 
