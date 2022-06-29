@@ -27,7 +27,7 @@
             <v-btn x-small @click="showProductPage(prod)">Show</v-btn>
 <!--            <v-btn x-small color="danger">Show Modal</v-btn>-->
             <ProductShowDialog3 :productId="prod.id"/>
-            <ProductShowDialog :product="prod"/>
+<!--            <ProductShowDialog :product="prod"/>-->
         </v-card-actions>
     </v-card>
 </template>

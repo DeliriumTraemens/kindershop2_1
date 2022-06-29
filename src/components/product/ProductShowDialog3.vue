@@ -6,7 +6,7 @@
                 dark
                 @click.stop="openClick()"
         >
-            Show Dialog
+            Product Details
         </v-btn>
 
         <v-dialog
@@ -18,7 +18,7 @@
 
                 <v-row justify="space-between">
                     <v-col>
-                        <ImageCaroussel :pick="getSelectedProduct.image" :images="getSelectedProduct.images" />
+                        <ImageCaroussel :pick="getSelectedProduct.image" :images="getSelectedProduct.images"/>
 <!--                        <v-card>-->
 <!--                            <v-card-text>-->
 

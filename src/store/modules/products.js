@@ -8,6 +8,7 @@ export default {
         currentProductCard: {},
         currentProductId: '',
         selectedProductId: '',
+        selectedProductImages:[],
         selectedProduct:{}
 
     },
@@ -29,6 +30,9 @@ export default {
         },
         getSelectedProductId(state){
             return state.selectedProductId
+        },
+        getSelectedProductImages(state){
+            return state.selectedProductImages
         },
         getSelectedProduct(state){
             return state.selectedProduct
@@ -58,6 +62,12 @@ export default {
         },
         selectedProductIdMutation(state, arg){
             state.selectedProductId= arg
+        },
+        selectedProductImagesMutation(state,arg){
+            state.selectedProductImages=arg
+            state.selectedProductImages.push(state.selectedProduct.image)
+            state.selectedProduct.images.forEach(el =>{state.selectedProductImages.push(el.image)})
+            state.selectedProduct.images=state.selectedProductImages
         },
         selectedProductMutation(state,arg){
             state.selectedProduct = arg
@@ -109,7 +119,8 @@ export default {
             // alert('It\'s an store method ' + arg )
             context.commit('selectedProductIdMutation', arg);
             await axios.get('http://localhost:9292/prodshow/' + arg).then(res => {
-                context.commit('selectedProductMutation', res.data)
+                context.commit('selectedProductMutation', res.data);
+                context.commit('selectedProductImagesMutation',[])
             })
 
 
