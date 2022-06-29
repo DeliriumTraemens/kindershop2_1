@@ -25,20 +25,22 @@
         </v-card-text>
         <v-card-actions>
             <v-btn x-small @click="showProductPage(prod)">Show</v-btn>
-            <v-btn x-small color="danger">Show Modal</v-btn>
-
-<!--            <ProductShowDialog :product="prod"/>-->
+<!--            <v-btn x-small color="danger">Show Modal</v-btn>-->
+            <ProductShowDialog3 :productId="prod.id"/>
+            <ProductShowDialog :product="prod"/>
         </v-card-actions>
     </v-card>
 </template>
 
 <script>
-    // import ProductShowDialog from "./ProductShowDialog";
+    import ProductShowDialog from "./ProductShowDialog";
     import {mapActions, mapMutations} from "vuex";
+    import ProductShowDialog3 from "./ProductShowDialog3";
     export default {
         name: "ProductListCard",
         components: {
-            // ProductShowDialog
+            ProductShowDialog3,
+            ProductShowDialog
         },
         props: {
             prod: Object

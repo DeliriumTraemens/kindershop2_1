@@ -61,8 +61,8 @@
 #myCard{
     font-size:1.5em;
 
-    width: 150px;
-    min-width: 150px;
+    width: 140px;
+    min-width: 140px;
     height: 200px;
 }
 </style>

@@ -23,19 +23,25 @@
                 />
             </v-col>
         </v-row>
-                <div class="myHeader">
-                    Производитель: <strong>{{item.manufacturer.name}}</strong>
+            <v-card-text class="myHeader">
+                Производитель: <strong>{{item.manufacturer.name}}</strong>
 
-                </div>
-        <v-btn x-small @click="showProduct(item)">Show</v-btn>
+            </v-card-text>
+
+        <v-card-actions>
+            <v-btn x-small @click="showProduct(item)">Show</v-btn>
+            <ProductShowDialog3 :productId="item.id"/>
+        </v-card-actions>
 
     </v-card>
 </template>
 
 <script>
     import {mapMutations} from 'vuex';
+    import ProductShowDialog3 from "./ProductShowDialog3";
     export default {
         name: "ProductSearchCard",
+        components: {ProductShowDialog3},
         props:{
             item:{}
         },
@@ -72,6 +78,7 @@
         /*font-family: "Times New Roman";*/
         font-size: 16px;
         line-height: 18px;
+        width: 100%;
     }
     .myRow{
         border:1px solid;

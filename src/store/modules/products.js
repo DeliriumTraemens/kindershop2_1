@@ -6,7 +6,10 @@ export default {
         currentPage: 0,
         totalPages: 0,
         currentProductCard: {},
-        currentProductId: ''
+        currentProductId: '',
+        selectedProductId: '',
+        selectedProduct:{}
+
     },
     getters: {
         getCurrentProdList(state) {
@@ -23,6 +26,12 @@ export default {
         },
         getCurrentProductId(state){
             return state.currentProductId
+        },
+        getSelectedProductId(state){
+            return state.selectedProductId
+        },
+        getSelectedProduct(state){
+            return state.selectedProduct
         }
     },
     mutations: {
@@ -46,6 +55,12 @@ export default {
         },
         currentProductIdMutation(state, arg){
             state.currentProductId = arg
+        },
+        selectedProductIdMutation(state, arg){
+            state.selectedProductId= arg
+        },
+        selectedProductMutation(state,arg){
+            state.selectedProduct = arg
         }
 
     },
@@ -87,6 +102,16 @@ export default {
                 // console.log(' ---------------getCurrentProduct -------------')
                 // console.log(context.getters.getCurrentProductCard)
             })
+
+        },
+
+        async setSelectedProduct(context, arg){
+            // alert('It\'s an store method ' + arg )
+            context.commit('selectedProductIdMutation', arg);
+            await axios.get('http://localhost:9292/prodshow/' + arg).then(res => {
+                context.commit('selectedProductMutation', res.data)
+            })
+
 
         }
     }
