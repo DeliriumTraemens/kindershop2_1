@@ -3,10 +3,11 @@
     <h1>Product Search</h1>
         <h6>TODO Порезать на компоненты и замапить все в Стор</h6>
         <v-row>
-            <v-col cols="3">Filters etc
-                <Alphabet/>
+            <v-col cols="2">Filters etc
+                <ProductSearchManufacturersList />
+                <!--                <Alphabet/>-->
             </v-col>
-            <v-col cols="9">
+            <v-col cols="10">
                 <div id="searchheader">Search block and results</div>
                 <v-row>
                     <v-col cols="9">
@@ -16,11 +17,12 @@
                         <v-btn @click="find()" color="orange" waves>Find</v-btn>
                     </v-col>
                 </v-row>
-                <v-row>
-                    <div v-for="item in 40">
-                        <div class="box1">{{item}}</div>
-                    </div>
-                </v-row>
+<!--                <v-row>-->
+<!--                    <div v-for="item in 40">-->
+<!--                        <div class="box1">{{item}}</div>-->
+<!--                    </div>-->
+<!--                </v-row>-->
+                <ProductSearchList />
             </v-col>
         </v-row>
 
@@ -30,9 +32,11 @@
 <script>
     import {mapActions} from 'vuex'
     import Alphabet from "../components/Alphabet";
+    import ProductSearchList from "../components/product/ProductSearchList";
+    import ProductSearchManufacturersList from "../components/product/ProductSearchManufacturersList";
     export default {
         name: "ProductSearch",
-        components: {Alphabet},
+        components: {ProductSearchManufacturersList, ProductSearchList, Alphabet},
         data(){
             return{
                 input:''

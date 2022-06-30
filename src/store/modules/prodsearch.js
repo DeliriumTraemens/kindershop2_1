@@ -7,14 +7,15 @@ export default{
         manufacturers:[],
         categories:[],
         currPage:'',
-        totalPgs:''
+        totalPgs:'',
+        searchName:''
     },
     getters: {
         getResult(state){
             return state.result
         },
         getProducts(state){
-            return this.state.products
+            return state.products
         },
         getManufacturers(state){
             return state.manufacturers
@@ -27,6 +28,9 @@ export default{
         },
         getTotalPgs(state){
             return state.totalPgs
+        },
+        getSearchName(state){
+            return state.searchName
         }
 
     },
@@ -43,20 +47,26 @@ export default{
         currPageMutation(state, arg){
             state.currPage=arg},
         totalPgsMutation(state, arg){
-            state.totalPgs=arg}
+            state.totalPgs=arg},
+        searchNameMutation(state, arg){
+            state.searchName = arg
+        }
 
     },
     actions: {
         searchProducts(context, arg){
-            alert('Your entered \'' + arg+'\''+typeof(arg))
+            // alert('Your entered \'' + arg+'\''+typeof(arg))
+            context.commit('searchNameMutation', arg)
             const sd = new FormData();
             sd.append('name', arg)
 
-            axios.post('http://localhost:9292/prodcat/search', sd,
+            axios.post('http://localhost:9292/prodcat/find', sd,
                 {
                     maxContentLength: 0,
                     maxBodyLength: 0
                 }).then(res=>{
+                    context.commit('productsMutation', res.data.products)
+                    context.commit('manufacturersMutation',res.data.manufacturers)
                     console.log(res.data)
             })
         }
