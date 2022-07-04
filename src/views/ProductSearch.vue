@@ -22,7 +22,7 @@
 <!--                        <div class="box1">{{item}}</div>-->
 <!--                    </div>-->
 <!--                </v-row>-->
-                <ProductSearchList />
+                <ProductSearchList :dataList="getProducts"/>
             </v-col>
         </v-row>
 
@@ -30,7 +30,7 @@
 </template>
 
 <script>
-    import {mapActions} from 'vuex'
+    import { mapGetters, mapActions} from 'vuex'
     import Alphabet from "../components/Alphabet";
     import ProductSearchList from "../components/product/ProductSearchList";
     import ProductSearchManufacturersList from "../components/product/ProductSearchManufacturersList";
@@ -41,6 +41,9 @@
             return{
                 input:''
             }
+        },
+        computed: {
+            ...mapGetters(['getProducts'])
         },
         methods:{
             ...mapActions(['searchProducts']),

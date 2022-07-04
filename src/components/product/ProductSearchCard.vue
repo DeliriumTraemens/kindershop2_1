@@ -12,6 +12,7 @@
                 <div v-for="cat in item.categoryList" :key="cat.id">
                     <div class="myCatList">{{cat.name}} Id:{{cat.id}}</div>
                 </div>
+                <h3>Price {{item.price}} rub</h3>
             </v-col>
             <v-col cols="5">
 <!--                        :src="'http://localhost:9292/images/'+item.image"-->

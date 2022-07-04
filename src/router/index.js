@@ -7,6 +7,7 @@ import CategorySearch from "../views/CategorySearch";
 import ProductSearch from "../views/ProductSearch";
 import ProductPage from "../views/ProductPage";
 import Manufacturers from "../views/Manufacturers";
+import CategoryCommander from "../views/CategoryCommander";
 
 Vue.use(VueRouter)
 
@@ -20,6 +21,11 @@ const routes = [
     path: '/commander',
     name: 'ShopCommander',
     component: ShopCommander
+  },
+  {
+    path: '/catcommander',
+    name: 'CategoryCommander',
+    component: CategoryCommander
   },
   {
     path: '/trainer',

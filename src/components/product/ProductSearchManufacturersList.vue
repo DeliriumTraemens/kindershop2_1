@@ -4,7 +4,7 @@
         <v-row>
             <v-col>
                 <div v-for="man in getManufacturers" :key="man.id">
-                    <v-btn x-small block >{{man.name}}</v-btn>
+                    <v-btn x-small block @click="filterMan(man.id)">{{man.name}}{{man.id}}</v-btn>
 <!--                    <div class="manCard">-->
 <!--                        {{man.name}}-->
 <!--                    </div>-->
@@ -16,12 +16,19 @@
 </template>
 
 <script>
-    import { mapGetters } from 'vuex';
+    import { mapGetters, mapActions } from 'vuex';
     export default {
         name: "ProductSearchManufacturersList",
         computed:{
             ...mapGetters(['getManufacturers'])
         },
+        methods:{
+            ...mapActions(['filterManufacturers']),
+            filterMan(id){
+                this.$store.dispatch('filterManufacturers', id)
+            }
+
+        }
     }
 </script>
 

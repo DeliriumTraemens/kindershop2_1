@@ -28,6 +28,7 @@
 
       <v-spacer></v-spacer>
       <v-btn @click="show_shop" x-small color="warning" class="mr-2">Shop</v-btn>
+      <v-btn @click="category_commander" x-small color="warning" class="mr-2">Category Commander</v-btn>
       <v-btn @click="shop_commander" x-small color="blue" class="mr-2">Shop Commander</v-btn>
       <v-btn @click="categorySearh" x-small color="green" class="mr-2">Category Search</v-btn>
       <v-btn @click="productSearch" x-small color="green" class="mr-2">Product Search</v-btn>
@@ -79,6 +80,9 @@ export default {
     },
     productSearch(){
       this.$router.push('/prodSearch')
+    },
+    category_commander(){
+      this.$router.push('/catcommander')
     }
   }
 };

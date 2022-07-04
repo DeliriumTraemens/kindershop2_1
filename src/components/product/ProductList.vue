@@ -3,11 +3,12 @@
 
         <div  >
         <h2>Product List</h2>
+<!--            <h4>Scroll {{scroll}}</h4>-->
             <div v-if="getCurrentProdList.length === 0" class="empty-box" >
             <h2>Категория без товаров id: {{getSelectedCategoryId}}</h2>
         </div>
-                <div style="max-height: 650px" class="overflow-y-auto pr-2">
-                    <v-row  >
+                <div style="max-height: 650px" class="overflow-y-auto pr-2" id="infinite-list">
+                    <v-row  id="aaa" >
                         <div v-for="(prod,idx) in getCurrentProdList" :key="idx">
                             {{idx+1}}
                             <ProductListCard :prod="prod"/>
@@ -28,8 +29,8 @@
         components: { ProductListCard, },
         data(){
             return{
-                // scroll: document.getElementById('list1').pageYOffset,
-                offset:50
+                // scroll: document.getElementById('aaa').pageYOffset,
+                offset: 120
             }
         },
         computed: {
@@ -37,19 +38,50 @@
         },
         methods: {
             ...mapActions(['loadProductPage']),
+
+            loadNextPage(){
+                this.$store.dispatch('loadProductPage')
+
+            },
             handleScroll(){
-                if(window.scrollY + window.innerHeight >= document.body.scrollHeight - this.offset){
 
-                    this.$store.dispatch('loadProductPage')
 
-                    this.offset=0
-                }
+                ////////////////
+                // if(document.documentElement.scrollTop + window.innerHeight ===
+                //     document.documentElement.offsetHeight){
+                //     alert('scroll')
+                //     this.$store.dispatch('loadProductPage')
+                //
+                //     this.offset=0
+                // }
+                ////////////////
+
+
+/////////
+                // if(document.documentElement.scrollTop + window.innerHeight  >= document.body.scrollHeight ){
+                //     alert('scroll')
+                //     this.$store.dispatch('loadProductPage')
+                //
+                //     this.offset=0
+                // }
+
+                // if(window.scrollY + window.innerHeight  + this.offset >= document.body.scrollHeight ){
+                //     alert('scroll')
+                //     this.$store.dispatch('loadProductPage')
+                //
+                //     this.offset=0
+                // }
             }
 
         },
         mounted() {
-
-            window.addEventListener('scroll', this.handleScroll)
+            const scrollElm = document.querySelector('#infinite-list');
+            scrollElm.addEventListener('scroll', e=>{
+                if( scrollElm.scrollTop + scrollElm.clientHeight >= scrollElm.scrollHeight){
+                    this.loadNextPage()
+                }
+            })
+            // window.addEventListener('scroll', this.handleScroll)
 
             },
 

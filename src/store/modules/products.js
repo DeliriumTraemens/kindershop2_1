@@ -78,7 +78,8 @@ export default {
         async loadProductPage(context){
             // alert('Page loadProductPage')
             let catId= context.getters.getSelectedCategoryId
-            await axios.get('http://localhost:9292/product/' + catId, {params:{page: context.state.currentPage + 1}})
+            await axios.get('http://localhost:9292/product/' + catId,
+                {params:{page: context.state.currentPage + 1}})
                 .then(res => {
                     context.commit('prodListPagedMutation', res.data.products);
                     context.commit('currentPageMutation', res.data.currentPage);

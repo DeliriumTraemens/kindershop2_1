@@ -3,7 +3,7 @@ import axios from "axios";
 export default{
     state: {
         result: [],
-        products:[],
+        productList:[],
         manufacturers:[],
         categories:[],
         currPage:'',
@@ -15,7 +15,7 @@ export default{
             return state.result
         },
         getProducts(state){
-            return state.products
+            return state.productList
         },
         getManufacturers(state){
             return state.manufacturers
@@ -39,7 +39,17 @@ export default{
             state.result=arg
         },
         productsMutation(state, arg){
-            state.products=arg},
+            state.productList=arg
+            // arg.forEach(product => {
+            //     state.products.push(product)
+            // })
+            // state.products = arg
+        },
+
+        productFilterMutation(state, arg){
+            state.productList=arg
+        },
+
         manufacturersMutation(state, arg){
             state.manufacturers=arg},
         categoriesMutation(state, arg){
@@ -69,6 +79,22 @@ export default{
                     context.commit('manufacturersMutation',res.data.manufacturers)
                     console.log(res.data)
             })
-        }
+        },
+
+   async filterManufacturers(context, arg){
+            context.commit('productFilterMutation',[])
+            const sd = new FormData();
+            sd.append('id', arg ),
+                sd.append('name', context.getters.getSearchName)
+     await   axios.post('http://localhost:9292/prodcat/manFilter', sd,
+            {
+            maxContentLength: 0,
+            maxBodyLength: 0
+        }).then(result => {
+            context.commit('productFilterMutation', result.data)
+            console.log('State PRODUCTS')
+            console.log(context.state.products)
+        })
     }
+   }
 }

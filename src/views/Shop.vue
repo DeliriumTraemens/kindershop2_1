@@ -1,7 +1,7 @@
 <template>
     <div>
       <v-row>
-        <v-col >
+        <v-col cols="3">
             <h1>Left Column</h1>
       <h1>Shop Face 2</h1>
             <hr class="my-4">
@@ -17,35 +17,38 @@
 <!--            <CategoryList />-->
 
         </v-col>
-        <v-col cols="5">
+        <v-col cols="9">
             <h1>Center Column</h1>
             <div >
-                <ProductList/>
-
-            </div>
-        </v-col>
-        <v-col>
-            <h1>Right Column</h1>
             <div>
                 Current Page: {{getCurrentPage}}<br>
                 TotalPages: {{getTotalPages}}
             </div>
-            <hr>
-            <div>
-                Current Category: {{typeof getSelectedCategoryId}}' '{{getSelectedCategoryId}} <br>
-                Target Category: {{typeof getTargetCategoryId}} ' ' {{getTargetCategoryId}}
-            </div>
-            <hr class="my-2">
-            <LiveSearch />
-            <hr class="my-2">
-            <v-card class="overflow-y-auto"
-                    max-height="600">
+                <div>
 
-                <CatBrowser1   v-for="nodes in data"
-                               :key="nodes.id"
-                               :nodes="nodes" />
-            </v-card>
+                <ProductList/>
+                </div>
+
+            </div>
         </v-col>
+<!--        <v-col>-->
+<!--            <h1>Right Column</h1>-->
+<!--            <hr>-->
+<!--            <div>-->
+<!--                Current Category: {{typeof getSelectedCategoryId}}' '{{getSelectedCategoryId}} <br>-->
+<!--                Target Category: {{typeof getTargetCategoryId}} ' ' {{getTargetCategoryId}}-->
+<!--            </div>-->
+<!--            <hr class="my-2">-->
+<!--            <LiveSearch />-->
+<!--            <hr class="my-2">-->
+<!--            <v-card class="overflow-y-auto"-->
+<!--                    max-height="600">-->
+
+<!--                <CatBrowser1   v-for="nodes in data"-->
+<!--                               :key="nodes.id"-->
+<!--                               :nodes="nodes" />-->
+<!--            </v-card>-->
+<!--        </v-col>-->
       </v-row>
     </div>
 </template>
