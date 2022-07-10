@@ -68,7 +68,8 @@ export default {
 
         async setCategoryList(context) {
             // await axios.get('http://localhost:9292/category').then(res => {
-            await axios.get('http://localhost:9292/catalog/getCatalog').then(res => {
+            // await axios.get('http://localhost:9292/catalog/getCatalog').then(res => {
+            await axios.get('http://192.168.1.68:9292/catalog/getCatalog').then(res => {
                 context.commit('categoryListMutation', res.data)
                 // console.log('Catalog List')
                 // console.log(res.data)

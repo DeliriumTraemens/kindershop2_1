@@ -77,6 +77,7 @@ export default {
     actions: {
         async loadProductPage(context){
             // alert('Page loadProductPage')
+            //TODO Add manufacturers to list
             let catId= context.getters.getSelectedCategoryId
             await axios.get('http://localhost:9292/product/' + catId,
                 {params:{page: context.state.currentPage + 1}})
@@ -87,10 +88,13 @@ export default {
                 })
         },
         async setCurrentProdList(context, arg) {
+            //TODO Add manufacturers to list
+
             context.commit('currentPageMutation', 0);
 
             context.commit('selectedCategoryIdMutation', arg.id)
-            await axios.get('http://localhost:9292/product/' + arg.id,
+            await axios.get('http://192.168.1.68:9292/product/' + arg.id,
+            // await axios.get('http://localhost:9292/product/' + arg.id,
                 {params:{page: context.state.currentPage}})
                             .then(res => {
                                 context.commit('currentProdListMutation', res.data.products);
