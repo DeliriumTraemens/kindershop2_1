@@ -9,7 +9,8 @@ export default {
         currentProductId: '',
         selectedProductId: '',
         selectedProductImages:[],
-        selectedProduct:{}
+        selectedProduct:{},
+        currentProductListManufacturers:[]
 
     },
     getters: {
@@ -36,6 +37,9 @@ export default {
         },
         getSelectedProduct(state){
             return state.selectedProduct
+        },
+        getCurrentProductListManufacturers(state){
+            return state.currentProductListManufacturers
         }
     },
     mutations: {
@@ -71,6 +75,9 @@ export default {
         },
         selectedProductMutation(state,arg){
             state.selectedProduct = arg
+        },
+        currentProductListManufacturersMutation(state,arg){
+            state.currentProductListManufacturers = arg
         }
 
     },
@@ -98,6 +105,7 @@ export default {
                 {params:{page: context.state.currentPage}})
                             .then(res => {
                                 context.commit('currentProdListMutation', res.data.products);
+                                context.commit('currentProductListManufacturersMutation', res.data.manufacturers)
                                 context.commit('currentPageMutation', res.data.currentPage);
                                 context.commit('totalPagesMutation', res.data.totalPages);
                 })
