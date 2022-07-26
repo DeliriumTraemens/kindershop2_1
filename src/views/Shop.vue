@@ -1,12 +1,12 @@
 <template>
-    <div>
+    <v-container>
       <v-row>
-        <v-col cols="3">
+        <v-col cols="3" class="pl-2">
             <h1>Left Column</h1>
       <h1>Shop Face 2</h1>
             <hr class="my-4">
             <v-card class="overflow-y-auto"
-                 max-height="600">
+                 max-height="550px">
 
 
                 <CatBrowser1   v-for="nodes in data"
@@ -14,6 +14,7 @@
                                :nodes="nodes" />
             </v-card>
             <hr class="my-4">
+            <PriceChooser />
             <CategoryManufacturerList />
 <!--            <CategoryList />-->
 
@@ -44,7 +45,7 @@
             </div>
         </v-col>
       </v-row>
-    </div>
+    </v-container>
 </template>
 
 <script>
@@ -54,12 +55,13 @@ import CatBrowser1 from "../components/category/CatBrowser1";
 import ProductList from "../components/product/ProductList";
 import {mapGetters} from 'vuex';
 import CategoryManufacturerList from "../components/manufacturer/CategoryManufacturerList";
+import PriceChooser from "../components/common_ui/PriceChooser";
 export default {
   name: 'Shop',
     props : {
       data:[Array, Number]
     },
-  components: {CategoryManufacturerList, ProductList, CatBrowser1, LiveSearch },
+  components: {PriceChooser, CategoryManufacturerList, ProductList, CatBrowser1, LiveSearch },
     computed: {
       ...mapGetters(['getCurrentPage','getTotalPages', 'getSelectedCategoryId', 'getTargetCategoryId'])
     }

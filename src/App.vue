@@ -34,6 +34,7 @@
       <v-btn @click="productSearch" x-small color="green" class="mr-2">Product Search</v-btn>
       <v-btn @click="shop_trainer" x-small color="red">Shop Trainer</v-btn>
       <v-btn @click="shop_trainer2" x-small color="red">Manufacturers</v-btn>
+      <v-btn @click="ui_trainer" x-small color="orange">UiTrainer</v-btn>
 
 
       <v-spacer></v-spacer>
@@ -83,6 +84,9 @@ export default {
     },
     category_commander(){
       this.$router.push('/catcommander')
+    },
+    ui_trainer(){
+      this.$router.push('/ui_train')
     }
   }
 };

@@ -8,6 +8,7 @@ import ProductSearch from "../views/ProductSearch";
 import ProductPage from "../views/ProductPage";
 import Manufacturers from "../views/Manufacturers";
 import CategoryCommander from "../views/CategoryCommander";
+import UiTrainer from "../views/UiTrainer";
 
 Vue.use(VueRouter)
 
@@ -51,6 +52,11 @@ const routes = [
     path: '/product',
     name: 'ProductPage',
     component: ProductPage
+  },
+  {
+    path: '/ui_train',
+    name: 'UiTrainer',
+    component: UiTrainer
   },
   {
     path: '/about',

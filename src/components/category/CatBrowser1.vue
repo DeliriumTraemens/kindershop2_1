@@ -24,8 +24,9 @@
                         v-else
                         style="font-size:10px; color: mediumblue"
                 > &#9671; </span>
-                {{ nodes.name }} <strong>{{nodes.id}}</strong>
+                {{ nodes.name }}
             </div>
+<!--            <strong>{{nodes.id}}</strong>-->
             <v-layout
                     align-start
                     justify-end
@@ -100,20 +101,21 @@
 <style scoped>
     .node {
         border-top: 1px solid;
-        border-left: 2px solid;
-        border-top-left-radius: 6px;
+        border-left: 1px solid;
+        border-top-left-radius: 4px;
 
         border-left-color: #0802aa;
 
         text-align: left;
         margin-top: 3px;
-        font-size: 14px;
+        font-size: 12px;
+        font-weight: bold;
         /*max-height: 2em;*/
     }
 
     .lay1{
 
-        max-height:30px;
+        max-height:20px;
         padding-left:0.5em;
     }
 </style>
