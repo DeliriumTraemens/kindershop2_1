@@ -1,15 +1,29 @@
 <template>
     <v-container>
+        <p>{{selectedMans}}</p>
+        <p>{{selM}}</p>
         <v-row>
             <div v-if="isVisible">
                 <div v-for="n in 5" :key="n">
-                    <div id="manCard2">{{getCurrentProductListManufacturers[n].name}}</div>
+<!--                    <div id="manCard2">{{getCurrentProductListManufacturers[n].name}}</div>-->
+                    <v-checkbox
+                            dense
+                            v-model="selectedMans"
+                            :label="getCurrentProductListManufacturers[n].name"
+                            :value="getCurrentProductListManufacturers[n].id"
+                    ></v-checkbox>
                 </div>
                 <v-btn x-small @click="showAll">ShowAll</v-btn>
             </div>
             <div v-else>
                 <div v-for="item in getCurrentProductListManufacturers" :key="item.id">
-                    <div id="manCard">{{item.name}}</div>
+<!--                    <div id="manCard">{{item.name}}</div>-->
+                    <v-checkbox
+                            dense
+                            v-model="selectedMans"
+                            :label="item.name"
+                            :value="item.id"
+                    ></v-checkbox>
                 </div>
                 <v-btn x-small @click="showAll">ShowAll</v-btn>
             </div>
@@ -23,7 +37,9 @@
         name: "CategoryManufacturerList",
         data(){
             return{
-                isVisible:true
+                isVisible:true,
+                selectedMans: [],
+                selM:[]
             }
         },
         computed:{

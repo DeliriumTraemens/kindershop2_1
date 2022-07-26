@@ -108,7 +108,7 @@
 
         text-align: left;
         margin-top: 3px;
-        font-size: 12px;
+        font-size: 13px;
         font-weight: bold;
         /*max-height: 2em;*/
     }
