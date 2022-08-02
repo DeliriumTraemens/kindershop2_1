@@ -135,7 +135,11 @@ export default {
             sd.append('manufacturers', arg)
 
             axios.post('http://localhost:9292/product/filter',sd).then(res=>{
-                console.log(res)
+                context.commit('currentProdListMutation', res.data.products);
+                context.commit('minPriceMutation', res.data.minPrice)
+                context.commit('maxPriceMutation', res.data.maxPrice)
+                context.commit('currentPageMutation', res.data.currentPage);
+                context.commit('totalPagesMutation', res.data.totalPages);
             })
 
             // alert('Manufacturer\'s Id'+ arg + ' Category Id: '+context.getters.getSelectedCategoryId)
