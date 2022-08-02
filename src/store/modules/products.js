@@ -128,6 +128,18 @@ export default {
                     context.commit('totalPagesMutation', res.data.totalPages);
                 })
         },
+       //arg - selectedMans
+        setFilteredProdList(context, arg){
+            const sd=new FormData()
+            sd.append('catId', context.getters.getSelectedCategoryId)
+            sd.append('manufacturers', arg)
+
+            axios.post('http://localhost:9292/product/filter',sd).then(res=>{
+                console.log(res)
+            })
+
+            // alert('Manufacturer\'s Id'+ arg + ' Category Id: '+context.getters.getSelectedCategoryId)
+},
 
 
         async setCurrentProduct(context, arg) {

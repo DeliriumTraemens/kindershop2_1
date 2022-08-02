@@ -2,6 +2,8 @@
     <v-container>
         <p>{{selectedMans}}</p>
         <p>{{selM}}</p>
+        <p>A chek {{selectedMans}}</p>
+        <input type="checkbox" v-model="selectedMans" name="acheck" value="20">
         <v-row>
             <div v-if="isVisible">
                 <div v-for="n in 5" :key="n">
@@ -20,7 +22,7 @@
 <!--                    <div id="manCard">{{item.name}}</div>-->
                     <v-checkbox
                             dense
-                            v-model="selectedMans"
+                            v-model="selM"
                             :label="item.name"
                             :value="item.id"
                     ></v-checkbox>

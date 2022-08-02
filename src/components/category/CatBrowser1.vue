@@ -114,8 +114,9 @@
     }
 
     .lay1{
-
-        max-height:20px;
+        padding-top: 3px;
+        max-height:30px;
+        line-height: 1.2;
         padding-left:0.5em;
     }
 </style>
